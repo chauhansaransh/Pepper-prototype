@@ -1,0 +1,54 @@
+{
+  "endpoint": "/v2/collections/64b2c3d4articles/items/live",
+  "collectionId": "64b2c3d4articles",
+  "siteId": "wf_site_northstar",
+  "dateRangeLabel": "Live CMS items",
+  "items": [
+    {
+      "id": "66a9b2c3d4e50022cd45001",
+      "cmsLocaleId": "66a9b2c3d4e50022cd40001",
+      "lastPublished": "2026-04-15T12:10:00.000Z",
+      "lastUpdated": "2026-04-15T12:10:00.000Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "name": "Home Loan Pre-Approval: Step-by-Step",
+        "slug": "pre-approval",
+        "url-path": "/loans/pre-approval",
+        "meta-description": "Prepare your pre-approval application.",
+        "publish-date": "2026-03-05T08:00:00.000Z"
+      }
+    },
+    {
+      "id": "66a9b2c3d4e50022cd45002",
+      "cmsLocaleId": "66a9b2c3d4e50022cd40001",
+      "lastPublished": "2026-04-02T09:45:00.000Z",
+      "lastUpdated": "2026-04-02T09:45:00.000Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "name": "Fixed vs Floating Interest Rates Explained",
+        "slug": "fixed-vs-floating",
+        "url-path": "/blog/fixed-vs-floating",
+        "meta-description": "Pick the right mortgage rate structure.",
+        "publish-date": "2026-02-14T13:20:00.000Z"
+      }
+    },
+    {
+      "id": "66a9b2c3d4e50022cd45003",
+      "cmsLocaleId": "66a9b2c3d4e50022cd40001",
+      "lastPublished": "2026-03-20T15:30:00.000Z",
+      "lastUpdated": "2026-03-20T15:30:00.000Z",
+      "isArchived": false,
+      "isDraft": false,
+      "fieldData": {
+        "name": "How to Improve Your Credit Score Faster",
+        "slug": "credit-score",
+        "url-path": "/guides/credit-score",
+        "meta-description": "Build credit before you apply.",
+        "publish-date": "2026-01-22T10:00:00.000Z"
+      }
+    }
+  ],
+  "pagination": { "limit": 100, "offset": 0, "total": 3 }
+}

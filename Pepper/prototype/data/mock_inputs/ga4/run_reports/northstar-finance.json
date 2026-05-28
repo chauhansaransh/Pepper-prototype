@@ -1,0 +1,103 @@
+{
+  "propertyId": "properties/100000002",
+  "startDate": "2026-04-01",
+  "endDate": "2026-04-28",
+  "dateRangeLabel": "Last 28 days",
+  "reports": {
+    "propertyTotals": {
+      "dimensionHeaders": [],
+      "metricHeaders": [
+        { "name": "sessions", "type": "TYPE_INTEGER" },
+        { "name": "activeUsers", "type": "TYPE_INTEGER" },
+        { "name": "engagedSessions", "type": "TYPE_INTEGER" },
+        { "name": "engagementRate", "type": "TYPE_FLOAT" },
+        { "name": "conversions", "type": "TYPE_INTEGER" }
+      ],
+      "rows": [
+        {
+          "dimensionValues": [],
+          "metricValues": [
+            { "value": "31800" },
+            { "value": "26400" },
+            { "value": "20100" },
+            { "value": "0.6321" },
+            { "value": "1240" }
+          ]
+        }
+      ],
+      "rowCount": 1,
+      "metadata": { "currencyCode": "USD", "timeZone": "America/Chicago" }
+    },
+    "byChannel": {
+      "dimensionHeaders": [{ "name": "sessionDefaultChannelGroup" }],
+      "metricHeaders": [
+        { "name": "sessions", "type": "TYPE_INTEGER" },
+        { "name": "activeUsers", "type": "TYPE_INTEGER" }
+      ],
+      "rows": [
+        {
+          "dimensionValues": [{ "value": "Organic Search" }],
+          "metricValues": [{ "value": "12880" }, { "value": "10940" }]
+        },
+        {
+          "dimensionValues": [{ "value": "Direct" }],
+          "metricValues": [{ "value": "9200" }, { "value": "8100" }]
+        },
+        {
+          "dimensionValues": [{ "value": "Paid Search" }],
+          "metricValues": [{ "value": "5400" }, { "value": "4900" }]
+        },
+        {
+          "dimensionValues": [{ "value": "Referral" }],
+          "metricValues": [{ "value": "2820" }, { "value": "2460" }]
+        },
+        {
+          "dimensionValues": [{ "value": "Email" }],
+          "metricValues": [{ "value": "1500" }, { "value": "1000" }]
+        }
+      ],
+      "rowCount": 5,
+      "metadata": { "currencyCode": "USD", "timeZone": "America/Chicago" }
+    },
+    "byLandingPage": {
+      "dimensionHeaders": [{ "name": "landingPage" }],
+      "metricHeaders": [
+        { "name": "sessions", "type": "TYPE_INTEGER" },
+        { "name": "activeUsers", "type": "TYPE_INTEGER" },
+        { "name": "bounceRate", "type": "TYPE_FLOAT" },
+        { "name": "averageSessionDuration", "type": "TYPE_SECONDS" }
+      ],
+      "rows": [
+        {
+          "dimensionValues": [{ "value": "/loans/pre-approval" }],
+          "metricValues": [
+            { "value": "3920" },
+            { "value": "3340" },
+            { "value": "0.361" },
+            { "value": "168" }
+          ]
+        },
+        {
+          "dimensionValues": [{ "value": "/blog/fixed-vs-floating" }],
+          "metricValues": [
+            { "value": "2680" },
+            { "value": "2310" },
+            { "value": "0.392" },
+            { "value": "124" }
+          ]
+        },
+        {
+          "dimensionValues": [{ "value": "/guides/credit-score" }],
+          "metricValues": [
+            { "value": "2150" },
+            { "value": "1890" },
+            { "value": "0.428" },
+            { "value": "102" }
+          ]
+        }
+      ],
+      "rowCount": 3,
+      "metadata": { "currencyCode": "USD", "timeZone": "America/Chicago" }
+    }
+  }
+}

@@ -1,0 +1,139 @@
+.report-body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  background: #f5f7fb;
+  color: #1e293b;
+}
+
+.report-hero {
+  background: linear-gradient(135deg, #4255ff 0%, #3344db 100%);
+  color: #fff;
+  padding: 28px 40px;
+}
+
+.report-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.report-logo {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.2);
+}
+
+.report-brand {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.9;
+  margin-bottom: 6px;
+}
+
+.report-hero h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.report-meta {
+  margin: 0 0 12px;
+  opacity: 0.9;
+}
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-llm {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.badge-fallback {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.badge-row {
+  margin-top: 10px;
+}
+
+.report-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 24px 48px;
+}
+
+.narrative h1,
+.narrative h2,
+.narrative h3 {
+  color: #1e293b;
+}
+
+.narrative p,
+.narrative li {
+  line-height: 1.6;
+  color: #334155;
+}
+
+.charts-section h2 {
+  margin-top: 40px;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 24px;
+}
+
+.chart-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.chart-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 12px;
+  margin: 0;
+}
+
+.chart-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.chart-card figcaption {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #64748b;
+  text-align: center;
+}
+
+.report-footer {
+  text-align: center;
+  padding: 24px;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+@media (max-width: 720px) {
+  .report-hero {
+    padding: 22px 20px;
+  }
+
+  .report-brand-row {
+    align-items: flex-start;
+  }
+
+  .report-logo {
+    width: 46px;
+    height: 46px;
+  }
+}

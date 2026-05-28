@@ -1,0 +1,50 @@
+{
+  "endpoint": "/wp-json/wp/v2/posts",
+  "siteUrl": "https://northstarfinance.com/wp-json",
+  "dateRangeLabel": "Published content (live)",
+  "totalItems": 3,
+  "items": [
+    {
+      "id": 902,
+      "date": "2026-03-05T08:00:00",
+      "modified": "2026-04-15T12:10:00",
+      "slug": "pre-approval",
+      "status": "publish",
+      "link": "https://northstarfinance.com/loans/pre-approval",
+      "title": { "rendered": "Home Loan Pre-Approval: Step-by-Step" },
+      "excerpt": {
+        "rendered": "<p>Documents, timelines, and how to strengthen your application.</p>"
+      },
+      "categories": [4],
+      "tags": [21]
+    },
+    {
+      "id": 880,
+      "date": "2026-02-14T13:20:00",
+      "modified": "2026-04-02T09:45:00",
+      "slug": "fixed-vs-floating",
+      "status": "publish",
+      "link": "https://northstarfinance.com/blog/fixed-vs-floating",
+      "title": { "rendered": "Fixed vs Floating Interest Rates Explained" },
+      "excerpt": {
+        "rendered": "<p>Compare rate types for your mortgage or refinance decision.</p>"
+      },
+      "categories": [7],
+      "tags": [33, 34]
+    },
+    {
+      "id": 851,
+      "date": "2026-01-22T10:00:00",
+      "modified": "2026-03-20T15:30:00",
+      "slug": "credit-score",
+      "status": "publish",
+      "link": "https://northstarfinance.com/guides/credit-score",
+      "title": { "rendered": "How to Improve Your Credit Score Faster" },
+      "excerpt": {
+        "rendered": "<p>Actionable habits that move FICO scores within 90 days.</p>"
+      },
+      "categories": [9],
+      "tags": [41]
+    }
+  ]
+}

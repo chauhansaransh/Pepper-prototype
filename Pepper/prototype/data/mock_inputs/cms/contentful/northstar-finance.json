@@ -1,0 +1,60 @@
+{
+  "endpoint": "/spaces/northstar_finance_space/environments/master/entries",
+  "space": "northstar_finance_space",
+  "environment": "master",
+  "dateRangeLabel": "CDA entries (published)",
+  "sys": { "type": "Array" },
+  "total": 3,
+  "skip": 0,
+  "limit": 100,
+  "items": [
+    {
+      "sys": {
+        "id": "1aB2cD3eF4gH5iJ6kL7mN",
+        "type": "Entry",
+        "createdAt": "2026-03-05T08:00:00Z",
+        "updatedAt": "2026-04-15T12:10:00Z",
+        "contentType": { "sys": { "id": "loanPage" } }
+      },
+      "fields": {
+        "title": "Home Loan Pre-Approval: Step-by-Step",
+        "slug": "pre-approval",
+        "path": "/loans/pre-approval",
+        "publishDate": "2026-03-05",
+        "seoDescription": "Mortgage pre-approval checklist."
+      }
+    },
+    {
+      "sys": {
+        "id": "8oP9qR0sT1uV2wX3yZ4aB",
+        "type": "Entry",
+        "createdAt": "2026-02-14T13:20:00Z",
+        "updatedAt": "2026-04-02T09:45:00Z",
+        "contentType": { "sys": { "id": "blogPost" } }
+      },
+      "fields": {
+        "title": "Fixed vs Floating Interest Rates Explained",
+        "slug": "fixed-vs-floating",
+        "path": "/blog/fixed-vs-floating",
+        "publishDate": "2026-02-14",
+        "seoDescription": "Fixed vs variable mortgage rates."
+      }
+    },
+    {
+      "sys": {
+        "id": "5cD6eF7gH8iJ9kL0mN1oP",
+        "type": "Entry",
+        "createdAt": "2026-01-22T10:00:00Z",
+        "updatedAt": "2026-03-20T15:30:00Z",
+        "contentType": { "sys": { "id": "guidePage" } }
+      },
+      "fields": {
+        "title": "How to Improve Your Credit Score Faster",
+        "slug": "credit-score",
+        "path": "/guides/credit-score",
+        "publishDate": "2026-01-22",
+        "seoDescription": "Raise your credit score before applying."
+      }
+    }
+  ]
+}

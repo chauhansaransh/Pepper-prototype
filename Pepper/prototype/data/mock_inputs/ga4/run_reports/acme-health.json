@@ -1,0 +1,103 @@
+{
+  "propertyId": "properties/100000001",
+  "startDate": "2026-04-01",
+  "endDate": "2026-04-28",
+  "dateRangeLabel": "Last 28 days",
+  "reports": {
+    "propertyTotals": {
+      "dimensionHeaders": [],
+      "metricHeaders": [
+        { "name": "sessions", "type": "TYPE_INTEGER" },
+        { "name": "activeUsers", "type": "TYPE_INTEGER" },
+        { "name": "engagedSessions", "type": "TYPE_INTEGER" },
+        { "name": "engagementRate", "type": "TYPE_FLOAT" },
+        { "name": "conversions", "type": "TYPE_INTEGER" }
+      ],
+      "rows": [
+        {
+          "dimensionValues": [],
+          "metricValues": [
+            { "value": "45200" },
+            { "value": "38100" },
+            { "value": "29400" },
+            { "value": "0.6504" },
+            { "value": "890" }
+          ]
+        }
+      ],
+      "rowCount": 1,
+      "metadata": { "currencyCode": "USD", "timeZone": "America/New_York" }
+    },
+    "byChannel": {
+      "dimensionHeaders": [{ "name": "sessionDefaultChannelGroup" }],
+      "metricHeaders": [
+        { "name": "sessions", "type": "TYPE_INTEGER" },
+        { "name": "activeUsers", "type": "TYPE_INTEGER" }
+      ],
+      "rows": [
+        {
+          "dimensionValues": [{ "value": "Organic Search" }],
+          "metricValues": [{ "value": "18640" }, { "value": "15820" }]
+        },
+        {
+          "dimensionValues": [{ "value": "Direct" }],
+          "metricValues": [{ "value": "11200" }, { "value": "9800" }]
+        },
+        {
+          "dimensionValues": [{ "value": "Paid Search" }],
+          "metricValues": [{ "value": "6840" }, { "value": "6100" }]
+        },
+        {
+          "dimensionValues": [{ "value": "Referral" }],
+          "metricValues": [{ "value": "4520" }, { "value": "3980" }]
+        },
+        {
+          "dimensionValues": [{ "value": "Email" }],
+          "metricValues": [{ "value": "4000" }, { "value": "2400" }]
+        }
+      ],
+      "rowCount": 5,
+      "metadata": { "currencyCode": "USD", "timeZone": "America/New_York" }
+    },
+    "byLandingPage": {
+      "dimensionHeaders": [{ "name": "landingPage" }],
+      "metricHeaders": [
+        { "name": "sessions", "type": "TYPE_INTEGER" },
+        { "name": "activeUsers", "type": "TYPE_INTEGER" },
+        { "name": "bounceRate", "type": "TYPE_FLOAT" },
+        { "name": "averageSessionDuration", "type": "TYPE_SECONDS" }
+      ],
+      "rows": [
+        {
+          "dimensionValues": [{ "value": "/blog/protein-guide" }],
+          "metricValues": [
+            { "value": "4820" },
+            { "value": "4100" },
+            { "value": "0.382" },
+            { "value": "142" }
+          ]
+        },
+        {
+          "dimensionValues": [{ "value": "/blog/collagen-facts" }],
+          "metricValues": [
+            { "value": "2910" },
+            { "value": "2540" },
+            { "value": "0.415" },
+            { "value": "118" }
+          ]
+        },
+        {
+          "dimensionValues": [{ "value": "/guides/omega-3" }],
+          "metricValues": [
+            { "value": "2240" },
+            { "value": "1980" },
+            { "value": "0.448" },
+            { "value": "96" }
+          ]
+        }
+      ],
+      "rowCount": 3,
+      "metadata": { "currencyCode": "USD", "timeZone": "America/New_York" }
+    }
+  }
+}

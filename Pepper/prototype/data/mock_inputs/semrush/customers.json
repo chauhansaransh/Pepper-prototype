@@ -1,0 +1,16 @@
+{
+  "customers": [
+    {
+      "id": "acme-health",
+      "name": "Acme Health",
+      "domain": "acmehealth.com",
+      "database": "us"
+    },
+    {
+      "id": "northstar-finance",
+      "name": "Northstar Finance",
+      "domain": "northstarfinance.com",
+      "database": "us"
+    }
+  ]
+}

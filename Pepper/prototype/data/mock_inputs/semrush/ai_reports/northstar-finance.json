@@ -1,0 +1,81 @@
+{
+  "customerDomain": "northstarfinance.com",
+  "dateRangeLabel": "Last 28 days",
+  "reports": {
+    "ai_visibility_overview": {
+      "type": "ai_visibility_overview",
+      "domain": "northstarfinance.com",
+      "metrics": {
+        "visibilityScore": 28,
+        "mentions": 94,
+        "citations": 61,
+        "citedPages": 31,
+        "monthlyAudience": 352000
+      },
+      "byLlm": [
+        { "platform": "google_ai_overview", "mentions": 40, "citations": 26, "visibilityShare": 42.6 },
+        { "platform": "chatgpt", "mentions": 34, "citations": 22, "visibilityShare": 36.2 },
+        { "platform": "gemini", "mentions": 20, "citations": 13, "visibilityShare": 21.2 }
+      ],
+      "competitorComparison": [
+        { "domain": "nerdwallet.com", "visibilityScore": 68, "mentions": 380, "citations": 265 },
+        { "domain": "bankrate.com", "visibilityScore": 62, "mentions": 340, "citations": 241 },
+        { "domain": "northstarfinance.com", "visibilityScore": 28, "mentions": 94, "citations": 61 }
+      ]
+    },
+    "ai_prompt_mentions": {
+      "type": "ai_prompt_mentions",
+      "domain": "northstarfinance.com",
+      "rows": [
+        {
+          "prompt": "home loan pre approval",
+          "brandMentioned": true,
+          "platforms": ["google_ai_overview", "chatgpt"],
+          "audience": 48200,
+          "competitorsMentioned": ["nerdwallet.com", "bankrate.com"]
+        },
+        {
+          "prompt": "fixed vs floating interest",
+          "brandMentioned": true,
+          "platforms": ["chatgpt"],
+          "audience": 9200,
+          "competitorsMentioned": ["bankrate.com"]
+        },
+        {
+          "prompt": "credit score improve fast",
+          "brandMentioned": false,
+          "platforms": ["gemini", "google_ai_overview"],
+          "audience": 26800,
+          "competitorsMentioned": ["nerdwallet.com", "experian.com"]
+        }
+      ]
+    },
+    "ai_citation_tracking": {
+      "type": "ai_citation_tracking",
+      "domain": "northstarfinance.com",
+      "rows": [
+        {
+          "url": "https://northstarfinance.com/loans/pre-approval",
+          "citationCount": 29,
+          "avgCitationPosition": 2.6,
+          "platforms": ["google_ai_overview", "chatgpt"],
+          "promptsCitedIn": 18
+        },
+        {
+          "url": "https://northstarfinance.com/blog/fixed-vs-floating",
+          "citationCount": 18,
+          "avgCitationPosition": 3.9,
+          "platforms": ["chatgpt"],
+          "promptsCitedIn": 11
+        },
+        {
+          "url": "https://northstarfinance.com/guides/credit-score",
+          "citationCount": 9,
+          "avgCitationPosition": 5.2,
+          "platforms": ["gemini"],
+          "promptsCitedIn": 7
+        }
+      ]
+    }
+  }
+}

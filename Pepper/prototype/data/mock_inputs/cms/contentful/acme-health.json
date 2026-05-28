@@ -1,0 +1,60 @@
+{
+  "endpoint": "/spaces/acme_health_space/environments/master/entries",
+  "space": "acme_health_space",
+  "environment": "master",
+  "dateRangeLabel": "CDA entries (published)",
+  "sys": { "type": "Array" },
+  "total": 3,
+  "skip": 0,
+  "limit": 100,
+  "items": [
+    {
+      "sys": {
+        "id": "3kX9m2pL7vQw1nR8sT4uJ",
+        "type": "Entry",
+        "createdAt": "2026-03-12T09:15:00Z",
+        "updatedAt": "2026-04-18T14:22:00Z",
+        "contentType": { "sys": { "id": "blogPost" } }
+      },
+      "fields": {
+        "title": "Best Protein for Women: A Practical Guide",
+        "slug": "protein-guide",
+        "path": "/blog/protein-guide",
+        "publishDate": "2026-03-12",
+        "seoDescription": "Choose protein for your health goals."
+      }
+    },
+    {
+      "sys": {
+        "id": "7pN2qR5wX8yZ1aB3cD6eF",
+        "type": "Entry",
+        "createdAt": "2026-02-20T11:40:00Z",
+        "updatedAt": "2026-04-10T08:05:00Z",
+        "contentType": { "sys": { "id": "blogPost" } }
+      },
+      "fields": {
+        "title": "Vegan Collagen Myths vs Science",
+        "slug": "collagen-facts",
+        "path": "/blog/collagen-facts",
+        "publishDate": "2026-02-20",
+        "seoDescription": "Collagen supplements: myths vs evidence."
+      }
+    },
+    {
+      "sys": {
+        "id": "9hJ4kL6mN2oP8qR1sT5uV",
+        "type": "Entry",
+        "createdAt": "2026-01-08T16:00:00Z",
+        "updatedAt": "2026-03-28T10:30:00Z",
+        "contentType": { "sys": { "id": "guidePage" } }
+      },
+      "fields": {
+        "title": "Omega-3 Benefits: What the Research Shows",
+        "slug": "omega-3",
+        "path": "/guides/omega-3",
+        "publishDate": "2026-01-08",
+        "seoDescription": "Omega-3 fats for heart and brain health."
+      }
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "startDate": "2026-04-01",
+  "endDate": "2026-04-28",
+  "dateRangeLabel": "Last 28 days",
+  "siteUrl": "sc-domain:northstarfinance.com",
+  "responses": {
+    "byProperty": {
+      "rows": [
+        {
+          "clicks": 9860,
+          "impressions": 295100,
+          "ctr": 0.0334,
+          "position": 16.2
+        }
+      ],
+      "responseAggregationType": "byProperty"
+    },
+    "byQuery": {
+      "rows": [
+        {
+          "keys": ["home loan pre approval"],
+          "clicks": 990,
+          "impressions": 28100,
+          "ctr": 0.0352,
+          "position": 8.5
+        },
+        {
+          "keys": ["fixed vs floating interest"],
+          "clicks": 760,
+          "impressions": 14600,
+          "ctr": 0.0521,
+          "position": 6.9
+        },
+        {
+          "keys": ["credit score improve fast"],
+          "clicks": 630,
+          "impressions": 18100,
+          "ctr": 0.0348,
+          "position": 11.6
+        }
+      ],
+      "responseAggregationType": "auto"
+    },
+    "byPage": {
+      "rows": [
+        {
+          "keys": ["/loans/pre-approval"],
+          "clicks": 1320,
+          "impressions": 31200,
+          "ctr": 0.0423,
+          "position": 7.8
+        },
+        {
+          "keys": ["/blog/fixed-vs-floating"],
+          "clicks": 910,
+          "impressions": 15200,
+          "ctr": 0.0599,
+          "position": 6.4
+        },
+        {
+          "keys": ["/guides/credit-score"],
+          "clicks": 780,
+          "impressions": 19600,
+          "ctr": 0.0398,
+          "position": 10.9
+        }
+      ],
+      "responseAggregationType": "auto"
+    }
+  }
+}

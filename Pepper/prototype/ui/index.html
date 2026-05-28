@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pepper Atlas — AI Report Builder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand-wrap">
+        <img
+          src="/assets/peppercontent_logo.jpeg"
+          alt="Pepper Content"
+          class="logo"
+        />
+        <div class="brand-copy">
+          <strong>Pepper Atlas</strong>
+        </div>
+      </div>
+      <div class="header-intro">
+        <h1>AI-generated performance report</h1>
+        <p>Combine SEO, GEO, engagement, and competitor insights.</p>
+      </div>
+      <nav class="stepper" aria-label="Progress">
+        <span class="step-pill active" data-step="1">1. Configure</span>
+        <span class="step-pill" data-step="2">2. Report</span>
+      </nav>
+    </header>
+
+    <main class="app-main">
+      <!-- Step 1 -->
+      <section id="step-1" class="step-panel active">
+        <section class="includes-card">
+          <h2>What each report includes</h2>
+          <p class="subtitle compact">
+            Audience, key outcomes, and data sources used for each report type.
+          </p>
+          <div id="report-type-cards" class="report-type-cards"></div>
+        </section>
+
+        <form id="config-form" class="form-card">
+          <div class="form-row two-col">
+            <div>
+              <label for="customer">Customer</label>
+              <select id="customer" required></select>
+            </div>
+            <div>
+              <label for="report-type">Report type</label>
+              <select id="report-type" required>
+                <option value="weekly">Weekly Report</option>
+                <option value="monthly">Monthly Report</option>
+                <option value="quarterly">Quarterly Report</option>
+              </select>
+            </div>
+          </div>
+
+          <section class="focus-block" aria-label="AI focus guidance">
+            <label for="instructions">What should the AI focus on? (optional)</label>
+            <textarea
+              id="instructions"
+              rows="4"
+              placeholder="Add any priorities, concerns, goals, or action items for this report."
+            ></textarea>
+            <div class="focus-help">
+              <p class="field-help">What would really help AI to personalize the report:</p>
+              <ul class="focus-list">
+                <li>What metrics are most important this cycle?</li>
+                <li>Any goals or targets to include?</li>
+                <li>Any action items from the last interaction?</li>
+                <li>Any risks, drops, or stakeholders to call out?</li>
+              </ul>
+            </div>
+          </section>
+
+          <button type="submit" class="btn btn-primary" id="generate-btn">
+            Create Customer Report
+          </button>
+        </form>
+        <p id="step1-error" class="error-text" hidden></p>
+      </section>
+
+      <!-- Step 2: Report -->
+      <section id="step-2" class="step-panel">
+        <div class="step-header">
+          <h2>Your report is ready</h2>
+          <p id="step2-meta" class="subtitle"></p>
+        </div>
+
+        <div id="report-preview" class="report-preview-shell"></div>
+
+        <div id="edit-panel" class="edit-panel" hidden>
+          <label for="report-editor">Edit report (markdown)</label>
+          <textarea id="report-editor" rows="16"></textarea>
+          <button type="button" id="save-preview" class="btn btn-secondary">
+            Save &amp; refresh preview
+          </button>
+        </div>
+
+        <div class="step-actions">
+          <button type="button" id="start-over" class="btn btn-secondary">Start over</button>
+          <button type="button" id="toggle-edit" class="btn btn-secondary">Edit report</button>
+          <button type="button" id="download-pdf" class="btn btn-primary">Download PDF</button>
+        </div>
+        <p id="step2-error" class="error-text" hidden></p>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

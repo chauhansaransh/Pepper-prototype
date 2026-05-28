@@ -1,0 +1,88 @@
+{
+  "customerDomain": "acmehealth.com",
+  "dateRangeLabel": "Last 28 days",
+  "reports": {
+    "ai_visibility_overview": {
+      "type": "ai_visibility_overview",
+      "domain": "acmehealth.com",
+      "metrics": {
+        "visibilityScore": 34,
+        "mentions": 128,
+        "citations": 86,
+        "citedPages": 42,
+        "monthlyAudience": 418000
+      },
+      "byLlm": [
+        { "platform": "chatgpt", "mentions": 52, "citations": 38, "visibilityShare": 41.2 },
+        { "platform": "google_ai_overview", "mentions": 44, "citations": 28, "visibilityShare": 32.8 },
+        { "platform": "gemini", "mentions": 32, "citations": 20, "visibilityShare": 26.0 }
+      ],
+      "competitorComparison": [
+        { "domain": "healthline.com", "visibilityScore": 71, "mentions": 420, "citations": 310 },
+        { "domain": "examine.com", "visibilityScore": 58, "mentions": 285, "citations": 198 },
+        { "domain": "acmehealth.com", "visibilityScore": 34, "mentions": 128, "citations": 86 }
+      ]
+    },
+    "ai_prompt_mentions": {
+      "type": "ai_prompt_mentions",
+      "domain": "acmehealth.com",
+      "rows": [
+        {
+          "prompt": "best protein for women",
+          "brandMentioned": true,
+          "platforms": ["chatgpt", "google_ai_overview"],
+          "audience": 12400,
+          "competitorsMentioned": ["healthline.com", "forbes.com"]
+        },
+        {
+          "prompt": "vegan collagen myths",
+          "brandMentioned": true,
+          "platforms": ["gemini"],
+          "audience": 5800,
+          "competitorsMentioned": ["healthline.com"]
+        },
+        {
+          "prompt": "omega 3 benefits",
+          "brandMentioned": false,
+          "platforms": ["chatgpt", "gemini", "google_ai_overview"],
+          "audience": 34200,
+          "competitorsMentioned": ["examine.com", "healthline.com", "webmd.com"]
+        },
+        {
+          "prompt": "how much protein per day for women",
+          "brandMentioned": true,
+          "platforms": ["google_ai_overview"],
+          "audience": 18900,
+          "competitorsMentioned": ["healthline.com"]
+        }
+      ]
+    },
+    "ai_citation_tracking": {
+      "type": "ai_citation_tracking",
+      "domain": "acmehealth.com",
+      "rows": [
+        {
+          "url": "https://acmehealth.com/blog/protein-guide",
+          "citationCount": 38,
+          "avgCitationPosition": 2.1,
+          "platforms": ["chatgpt", "google_ai_overview"],
+          "promptsCitedIn": 24
+        },
+        {
+          "url": "https://acmehealth.com/blog/collagen-facts",
+          "citationCount": 22,
+          "avgCitationPosition": 3.4,
+          "platforms": ["gemini", "chatgpt"],
+          "promptsCitedIn": 14
+        },
+        {
+          "url": "https://acmehealth.com/guides/omega-3",
+          "citationCount": 12,
+          "avgCitationPosition": 4.8,
+          "platforms": ["google_ai_overview"],
+          "promptsCitedIn": 9
+        }
+      ]
+    }
+  }
+}

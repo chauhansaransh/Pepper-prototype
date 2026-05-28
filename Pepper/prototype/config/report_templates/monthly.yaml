@@ -1,0 +1,126 @@
+monthly_report:
+  metadata:
+    report_type: "Monthly Report"
+    audience:
+      - "Marketing Lead"
+      - "Growth Lead"
+    objective: "Performance review, strategic learnings, and growth analysis"
+
+  sections:
+
+    - id: executive_summary
+      title: "Executive Summary"
+      type: "llm_summary"
+      generated_by: "llm"
+
+    - id: kpi_overview
+      title: "KPI Performance Overview"
+      type: "kpi_grid"
+      data_sources:
+        - gsc.search_analytics
+        - ga4.run_report
+        - semrush_ai.ai_visibility_overview
+      metrics:
+        - organic_clicks
+        - impressions
+        - ctr
+        - avg_position
+        - organic_sessions
+        - engagement_rate
+        - conversions
+        - ai_visibility_score
+
+    - id: traffic_trends
+      title: "Traffic & Visibility Trends"
+      type: "trend_analysis"
+      data_sources:
+        - gsc.search_analytics
+        - ga4.run_report
+        - semrush_ai.ai_visibility_overview
+      outputs:
+        - organic_growth_trends
+        - ai_visibility_trends
+
+    - id: best_content
+      title: "Best Performing Content"
+      type: "table"
+      data_sources:
+        - ga4.run_report
+        - gsc.search_analytics
+      columns:
+        - page
+        - primary_win
+        - supporting_metrics
+
+    - id: keyword_insights
+      title: "Query & Keyword Insights"
+      type: "multi_table"
+      data_sources:
+        - gsc.search_analytics
+        - semrush.report
+      tables:
+        fastest_growing_queries:
+          columns:
+            - query
+            - growth
+            - strategic_importance
+
+        ranking_gains:
+          columns:
+            - keyword
+            - previous_position
+            - current_position
+
+        ranking_declines:
+          columns:
+            - keyword
+            - previous_position
+            - current_position
+
+    - id: competitor_insights
+      title: "Competitor Insights"
+      type: "competitive_analysis"
+      data_sources:
+        - semrush.report
+        - semrush_ai.ai_visibility_overview
+      outputs:
+        - competitor_visibility_comparison
+        - keyword_gap_opportunities
+
+    - id: geo_insights
+      title: "GEO / AI Search Visibility"
+      type: "geo_analysis"
+      data_sources:
+        - semrush_ai.ai_visibility_overview
+        - semrush_ai.ai_citation_tracking
+      outputs:
+        - ai_citation_visibility
+        - top_ai_cited_pages
+
+    - id: engagement_conversion
+      title: "Engagement & Conversion Insights"
+      type: "table"
+      data_sources:
+        - ga4.run_report
+      columns:
+        - page
+        - engagement_rate
+        - conversion_rate
+        - observation
+
+    - id: learnings_recommendations
+      title: "Learnings & Strategic Recommendations"
+      type: "llm_analysis"
+      generated_by: "llm"
+      outputs:
+        - learnings
+        - recommendations
+
+    - id: next_month_priorities
+      title: "Next Month Priorities"
+      type: "priority_table"
+      generated_by: "llm"
+      columns:
+        - priority_area
+        - goal
+        - expected_outcome

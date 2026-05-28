@@ -1,0 +1,71 @@
+{
+  "startDate": "2026-04-01",
+  "endDate": "2026-04-28",
+  "dateRangeLabel": "Last 28 days",
+  "siteUrl": "sc-domain:acmehealth.com",
+  "responses": {
+    "byProperty": {
+      "rows": [
+        {
+          "clicks": 12480,
+          "impressions": 318400,
+          "ctr": 0.0392,
+          "position": 13.4
+        }
+      ],
+      "responseAggregationType": "byProperty"
+    },
+    "byQuery": {
+      "rows": [
+        {
+          "keys": ["best protein for women"],
+          "clicks": 1250,
+          "impressions": 16400,
+          "ctr": 0.0762,
+          "position": 6.2
+        },
+        {
+          "keys": ["vegan collagen myths"],
+          "clicks": 880,
+          "impressions": 12650,
+          "ctr": 0.0695,
+          "position": 7.9
+        },
+        {
+          "keys": ["omega 3 benefits"],
+          "clicks": 740,
+          "impressions": 19800,
+          "ctr": 0.0374,
+          "position": 10.1
+        }
+      ],
+      "responseAggregationType": "auto"
+    },
+    "byPage": {
+      "rows": [
+        {
+          "keys": ["/blog/protein-guide"],
+          "clicks": 1750,
+          "impressions": 25100,
+          "ctr": 0.0697,
+          "position": 5.8
+        },
+        {
+          "keys": ["/blog/collagen-facts"],
+          "clicks": 1040,
+          "impressions": 13800,
+          "ctr": 0.0754,
+          "position": 7.1
+        },
+        {
+          "keys": ["/guides/omega-3"],
+          "clicks": 820,
+          "impressions": 19200,
+          "ctr": 0.0427,
+          "position": 9.8
+        }
+      ],
+      "responseAggregationType": "auto"
+    }
+  }
+}

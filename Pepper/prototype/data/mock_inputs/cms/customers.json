@@ -1,0 +1,32 @@
+{
+  "customers": [
+    {
+      "id": "acme-health",
+      "wordpress": {
+        "siteUrl": "https://acmehealth.com/wp-json"
+      },
+      "webflow": {
+        "siteId": "wf_site_acme",
+        "collectionId": "64a1f2e8blogposts"
+      },
+      "contentful": {
+        "space": "acme_health_space",
+        "environment": "master"
+      }
+    },
+    {
+      "id": "northstar-finance",
+      "wordpress": {
+        "siteUrl": "https://northstarfinance.com/wp-json"
+      },
+      "webflow": {
+        "siteId": "wf_site_northstar",
+        "collectionId": "64b2c3d4articles"
+      },
+      "contentful": {
+        "space": "northstar_finance_space",
+        "environment": "master"
+      }
+    }
+  ]
+}

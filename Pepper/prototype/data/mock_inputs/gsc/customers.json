@@ -1,0 +1,14 @@
+{
+  "customers": [
+    {
+      "id": "acme-health",
+      "name": "Acme Health",
+      "property": "sc-domain:acmehealth.com"
+    },
+    {
+      "id": "northstar-finance",
+      "name": "Northstar Finance",
+      "property": "sc-domain:northstarfinance.com"
+    }
+  ]
+}

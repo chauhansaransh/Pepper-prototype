@@ -1,0 +1,14 @@
+{
+  "customers": [
+    {
+      "id": "acme-health",
+      "name": "Acme Health",
+      "propertyId": "properties/100000001"
+    },
+    {
+      "id": "northstar-finance",
+      "name": "Northstar Finance",
+      "propertyId": "properties/100000002"
+    }
+  ]
+}

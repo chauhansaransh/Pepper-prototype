@@ -1,0 +1,50 @@
+{
+  "endpoint": "/wp-json/wp/v2/posts",
+  "siteUrl": "https://acmehealth.com/wp-json",
+  "dateRangeLabel": "Published content (live)",
+  "totalItems": 3,
+  "items": [
+    {
+      "id": 1842,
+      "date": "2026-03-12T09:15:00",
+      "modified": "2026-04-18T14:22:00",
+      "slug": "protein-guide",
+      "status": "publish",
+      "link": "https://acmehealth.com/blog/protein-guide",
+      "title": { "rendered": "Best Protein for Women: A Practical Guide" },
+      "excerpt": {
+        "rendered": "<p>How to choose protein powders and whole-food sources for your goals.</p>"
+      },
+      "categories": [12, 34],
+      "tags": [88, 91]
+    },
+    {
+      "id": 1799,
+      "date": "2026-02-20T11:40:00",
+      "modified": "2026-04-10T08:05:00",
+      "slug": "collagen-facts",
+      "status": "publish",
+      "link": "https://acmehealth.com/blog/collagen-facts",
+      "title": { "rendered": "Vegan Collagen Myths vs Science" },
+      "excerpt": {
+        "rendered": "<p>Separating marketing claims from evidence on collagen supplements.</p>"
+      },
+      "categories": [12],
+      "tags": [102]
+    },
+    {
+      "id": 1710,
+      "date": "2026-01-08T16:00:00",
+      "modified": "2026-03-28T10:30:00",
+      "slug": "omega-3",
+      "status": "publish",
+      "link": "https://acmehealth.com/guides/omega-3",
+      "title": { "rendered": "Omega-3 Benefits: What the Research Shows" },
+      "excerpt": {
+        "rendered": "<p>EPA, DHA, and ALA explained for heart and brain health.</p>"
+      },
+      "categories": [18],
+      "tags": [55, 67]
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+weekly_report:
+  metadata:
+    report_type: "Weekly Report"
+    audience:
+      - "Analyst"
+      - "CSM"
+      - "SEO Operations"
+    objective: "Operational monitoring, deliverable tracking, and anomaly detection"
+
+  sections:
+
+    - id: executive_snapshot
+      title: "Executive Snapshot"
+      type: "kpi_grid"
+      data_sources:
+        - gsc.search_analytics
+        - ga4.run_report
+        - semrush_ai.ai_visibility_overview
+      metrics:
+        - organic_clicks
+        - impressions
+        - ctr
+        - avg_position
+        - ai_visibility_score
+        - engagement_rate
+
+    - id: key_changes
+      title: "Key Changes This Week"
+      type: "ai_signal_summary"
+      data_sources:
+        - gsc.search_analytics
+        - semrush.report
+        - semrush_ai.ai_prompt_mentions
+      output:
+        - positive_signals
+        - risks
+        - ai_visibility_updates
+
+    - id: top_content
+      title: "Top Performing Content"
+      type: "table"
+      data_sources:
+        - ga4.run_report
+        - gsc.search_analytics
+      columns:
+        - page
+        - metric_improved
+        - change
+        - insight
+
+    - id: query_changes
+      title: "Top Query Changes"
+      type: "dual_table"
+      data_sources:
+        - gsc.search_analytics
+      tables:
+        growing_queries:
+          columns:
+            - query
+            - position_change
+            - click_growth
+
+        declining_queries:
+          columns:
+            - query
+            - position_change
+            - click_decline
+
+    - id: competitor_highlights
+      title: "Competitor Highlights"
+      type: "table"
+      data_sources:
+        - semrush.report
+      columns:
+        - competitor
+        - observation
+        - impact
+
+    - id: geo_visibility
+      title: "GEO / AI Visibility Signals"
+      type: "table"
+      data_sources:
+        - semrush_ai.ai_visibility_overview
+        - semrush_ai.ai_prompt_mentions
+      columns:
+        - prompt_cluster
+        - visibility_trend
+        - competitor_position
+
+    - id: deliverables_completed
+      title: "Deliverables Completed"
+      type: "grouped_list"
+      data_sources:
+        - wordpress.posts
+        - webflow.items
+        - contentful.entries
+      groups:
+        - content_published
+        - seo_improvements
+        - technical_fixes
+
+    - id: indexing_health
+      title: "Indexing & Technical Health"
+      type: "table"
+      data_sources:
+        - gsc.url_inspection
+      columns:
+        - url
+        - issue
+        - severity
+        - recommendation
+
+    - id: next_actions
+      title: "Recommended Next Actions"
+      type: "priority_table"
+      generated_by: "llm"
+      columns:
+        - priority
+        - recommendation
+        - expected_impact
