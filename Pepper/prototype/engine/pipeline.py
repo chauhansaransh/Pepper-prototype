@@ -550,7 +550,7 @@ def render_report_markdown(
         deliverables_table = _deliverables_status_table(
             wordpress, webflow, contentful
         )
-        return f"""# Weekly report for {customer_name}
+        return f"""# {report_type} for {customer_name}
 
 ## Executive Summary
 {weekly_table}
@@ -774,7 +774,7 @@ def render_report_markdown(
     insights_block = "\n".join(f"- {item}" for item in insights)
     recommendations_block = "\n".join(f"- {item}" for item in recommendations)
 
-    return f"""# {report_type} Report - {customer_name}
+    return f"""# {report_type} for {customer_name}
 
 ## Executive Snapshot
 {executive_snapshot_table}

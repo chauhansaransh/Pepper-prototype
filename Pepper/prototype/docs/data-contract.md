@@ -27,7 +27,7 @@ Step 2 data review (manual source selection) is **not used** by the wizard. Temp
 - `usedLlm`, `llmProvider`, `llmError`
 - `customerId`, `customerName`
 - `reportType` — template id
-- `reportTypeLabel` — human label (e.g. "Weekly Report")
+- `reportTypeLabel` — human label (e.g. "Diagnostics", "Performance", "North Star")
 - `templateId`, `sourcesUsed[]`, `dataSourcesUsed[]` (from section `data_sources` in YAML)
 
 ## Report templates API (debug)

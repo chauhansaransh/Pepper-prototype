@@ -1,7 +1,7 @@
 # Pepper AI Builder Prototype
 
 ## What it does
-1. **Configure** — Select customer, report template (Weekly / Monthly / Quarterly), and optional instructions
+1. **Configure** — Select customer, report template (Diagnostics / Performance / North Star), and optional instructions
 2. **Report** — Auto-pulls data per template, generates HTML report with charts and OpenRouter narrative; edit or download PDF
 
 Report templates live in [`config/report_templates/`](config/report_templates/) (YAML). Each template defines which sources and APIs to use—no manual data selection in the UI.

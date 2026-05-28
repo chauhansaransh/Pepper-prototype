@@ -10,9 +10,9 @@ ROOT_DIR = Path(__file__).resolve().parents[1]
 TEMPLATES_DIR = ROOT_DIR / "config" / "report_templates"
 
 REPORT_TYPE_OPTIONS = [
-    {"id": "weekly", "label": "Weekly Report"},
-    {"id": "monthly", "label": "Monthly Report"},
-    {"id": "quarterly", "label": "Quarterly Report"},
+    {"id": "weekly", "label": "Diagnostics"},
+    {"id": "monthly", "label": "Performance"},
+    {"id": "quarterly", "label": "North Star"},
 ]
 
 # Maps template data_sources keys (from YAML) to extract source ids and item globs.
@@ -143,7 +143,9 @@ class ReportTemplate:
             "dataSources": list(self.data_sources),
             "sections": list(self.sections),
             "objective": self.metadata.get("objective"),
+            "description": self.metadata.get("description"),
             "audience": self.metadata.get("audience"),
+            "cadence": self.metadata.get("cadence"),
         }
 
 

@@ -182,7 +182,7 @@ Read the full weekly report below (all tables and section insights).
 Prioritize the highest-impact next steps and cover different areas (SEO, content, technical, competitive) when the data supports it.
 {_RECOMMENDATION_WRITING_RULES}
 
-Weekly Report:
+Report:
 {report_markdown}
 """
     return _run_llm(prompt, max_tokens=1024)

@@ -15,7 +15,7 @@ Report types are configured as YAML files under [`config/report_templates/`](../
 ```yaml
 weekly_report:
   metadata:
-    report_type: "Weekly Report"
+    report_type: "Diagnostics"
     audience: ["Analyst", "CSM"]
     objective: "Operational monitoring..."
   sections:

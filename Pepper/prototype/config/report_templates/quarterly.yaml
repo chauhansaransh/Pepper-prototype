@@ -1,11 +1,14 @@
 quarterly_report:
   metadata:
-    report_type: "Quarterly Report"
+    report_type: "North Star"
     audience:
-      - "CMO"
-      - "VP Marketing"
-      - "Leadership"
-    objective: "Table-first quarterly business review with concise actions"
+      - "Executives"
+      - "CFO"
+    description: "Business impact, Attributed revenue and strategic positioning"
+    cadence:
+      - "QBR Deep Dive"
+      - "Monthly Async"
+    objective: "Table-first North Star business review with concise actions"
 
   sections:
 

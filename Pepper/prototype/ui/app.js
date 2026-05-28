@@ -26,15 +26,6 @@ let wizardState = loadWizardState();
 let reportResult = null;
 let selectedFeedback = null;
 
-const REPORT_TYPE_DESCRIPTIONS = {
-  weekly:
-    "Operational updates, deliverables, and ranking changes.",
-  monthly:
-    "Performance trends, learnings, and growth insights.",
-  quarterly:
-    "Business impact, strategic positioning, and KPI review.",
-};
-
 function loadWizardState() {
   try {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY) || "{}");
@@ -104,15 +95,17 @@ async function loadTemplates() {
     templates.forEach((tpl) => {
       const card = document.createElement("article");
       card.className = "type-card";
-      const sources = (tpl.sources || []).join(", ") || "Template-defined";
-      const audience = (tpl.audience || []).join(", ") || "CSM, Marketing, Leadership";
-      const objective =
-        tpl.objective || REPORT_TYPE_DESCRIPTIONS[tpl.id] || "Performance reporting";
+      const audienceList = Array.isArray(tpl.audience) ? tpl.audience : [];
+      const cadenceList = Array.isArray(tpl.cadence) ? tpl.cadence : [];
+      const audience = audienceList.join(", ") || "—";
+      const cadence = cadenceList.join(", ") || "—";
+      const description =
+        tpl.description || tpl.objective || "Performance reporting for this cadence.";
       card.innerHTML = `
         <h3>${escapeHtml(tpl.label || tpl.id)}</h3>
-        <p>${escapeHtml(REPORT_TYPE_DESCRIPTIONS[tpl.id] || objective)}</p>
+        <p>${escapeHtml(description)}</p>
         <div class="mini-meta"><strong>Audience:</strong> ${escapeHtml(audience)}</div>
-        <div class="mini-meta"><strong>Data sources:</strong> ${escapeHtml(sources)}</div>
+        <div class="mini-meta"><strong>Cadence:</strong> ${escapeHtml(cadence)}</div>
       `;
       typeCardsContainer.appendChild(card);
     });

@@ -1,10 +1,13 @@
 monthly_report:
   metadata:
-    report_type: "Monthly Report"
+    report_type: "Performance"
     audience:
       - "Marketing Lead"
-      - "Growth Lead"
-    objective: "Table-first monthly performance review with concise actions"
+      - "CMO"
+    description: "Performance trends, organic conversion rate, engagement rate"
+    cadence:
+      - "Monthly"
+    objective: "Table-first performance review with concise actions"
 
   sections:
 

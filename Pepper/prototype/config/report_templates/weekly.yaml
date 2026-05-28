@@ -1,10 +1,12 @@
 weekly_report:
   metadata:
-    report_type: "Weekly Report"
+    report_type: "Diagnostics"
     audience:
-      - "CSM"
-      - "Client"
-    objective: "Weekly executive summary with clear CTAs"
+      - "SEO Team"
+    description: "Operational updates, deliverables and Crawl/index issues"
+    cadence:
+      - "Weekly / On Demand"
+    objective: "Diagnostics executive summary with clear CTAs"
 
   sections:
 
