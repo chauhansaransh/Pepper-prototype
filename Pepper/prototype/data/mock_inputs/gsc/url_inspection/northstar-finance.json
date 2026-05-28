@@ -1,70 +1,41 @@
 {
   "siteUrl": "sc-domain:northstarfinance.com",
+  "dateRangeLabel": "Last week data",
   "inspections": {
     "https://northstarfinance.com/loans/pre-approval": {
       "inspectionResult": {
-        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain%3Anorthstarfinance.com&id=mock-pre-approval",
         "indexStatusResult": {
           "verdict": "PASS",
           "coverageState": "Submitted and indexed",
-          "robotsTxtState": "ALLOWED",
           "indexingState": "INDEXING_ALLOWED",
-          "lastCrawlTime": "2026-04-26T09:45:00Z",
-          "pageFetchState": "SUCCESSFUL",
-          "googleCanonical": "https://northstarfinance.com/loans/pre-approval",
-          "userCanonical": "https://northstarfinance.com/loans/pre-approval"
+          "lastCrawlTime": "2026-05-03T09:45:00Z"
         },
-        "mobileUsabilityResult": {
-          "verdict": "PASS"
-        },
-        "richResultsResult": {
-          "verdict": "PASS",
-          "detectedItems": []
-        }
+        "mobileUsabilityResult": { "verdict": "PASS" },
+        "richResultsResult": { "verdict": "PASS", "detectedItems": [] }
       }
     },
     "https://northstarfinance.com/blog/fixed-vs-floating": {
       "inspectionResult": {
-        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain%3Anorthstarfinance.com&id=mock-fixed-floating",
         "indexStatusResult": {
           "verdict": "NEEDS_IMPROVEMENT",
           "coverageState": "Crawled - currently not indexed",
-          "robotsTxtState": "ALLOWED",
           "indexingState": "INDEXING_ALLOWED",
-          "lastCrawlTime": "2026-04-20T16:20:00Z",
-          "pageFetchState": "SUCCESSFUL",
-          "googleCanonical": "https://northstarfinance.com/blog/fixed-vs-floating",
-          "userCanonical": "https://northstarfinance.com/blog/fixed-vs-floating"
+          "lastCrawlTime": "2026-05-02T16:20:00Z"
         },
-        "mobileUsabilityResult": {
-          "verdict": "PASS"
-        },
-        "richResultsResult": {
-          "verdict": "PASS",
-          "detectedItems": []
-        }
+        "mobileUsabilityResult": { "verdict": "PASS" },
+        "richResultsResult": { "verdict": "PASS", "detectedItems": [] }
       }
     },
     "https://northstarfinance.com/guides/credit-score": {
       "inspectionResult": {
-        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain%3Anorthstarfinance.com&id=mock-credit-score",
         "indexStatusResult": {
           "verdict": "PASS",
           "coverageState": "Submitted and indexed",
-          "robotsTxtState": "ALLOWED",
           "indexingState": "INDEXING_ALLOWED",
-          "lastCrawlTime": "2026-04-23T07:55:00Z",
-          "pageFetchState": "SUCCESSFUL",
-          "googleCanonical": "https://northstarfinance.com/guides/credit-score",
-          "userCanonical": "https://northstarfinance.com/guides/credit-score"
+          "lastCrawlTime": "2026-05-04T07:55:00Z"
         },
-        "mobileUsabilityResult": {
-          "verdict": "PASS"
-        },
-        "richResultsResult": {
-          "verdict": "PASS",
-          "detectedItems": []
-        }
+        "mobileUsabilityResult": { "verdict": "PASS" },
+        "richResultsResult": { "verdict": "PASS", "detectedItems": [] }
       }
     }
   }

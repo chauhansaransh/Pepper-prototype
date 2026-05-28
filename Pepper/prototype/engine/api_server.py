@@ -1,4 +1,5 @@
 import json
+import os
 from http import HTTPStatus
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -25,13 +26,19 @@ from report_builder import (
 
 ROOT_DIR = Path(__file__).resolve().parents[1]
 UI_DIR = ROOT_DIR / "ui"
-HOST = "127.0.0.1"
-PORT = 8000
+HOST = os.environ.get("HOST", "127.0.0.1")
+PORT = int(os.environ.get("PORT", "8000"))
 
 
 class APIHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(UI_DIR), **kwargs)
+
+    def end_headers(self):
+        path = urlparse(self.path).path
+        if path.endswith((".js", ".html", ".css")):
+            self.send_header("Cache-Control", "no-cache, no-store, must-revalidate")
+        super().end_headers()
 
     def _write_json(self, payload, status=HTTPStatus.OK):
         body = json.dumps(payload).encode("utf-8")

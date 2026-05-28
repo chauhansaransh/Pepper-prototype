@@ -43,6 +43,8 @@ class MockSemrushAiClient:
         return {
             "customerDomain": fixture.get("customerDomain"),
             "dateRangeLabel": fixture.get("dateRangeLabel", "Unknown date range"),
+            "periodSnapshots": fixture.get("periodSnapshots", {}),
+            "aiPerformanceMatrix": fixture.get("aiPerformanceMatrix", {}),
         }
 
     def fetch_report(

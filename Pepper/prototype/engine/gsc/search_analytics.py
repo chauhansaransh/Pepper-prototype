@@ -85,4 +85,5 @@ class MockSearchAnalyticsClient:
             "endDate": fixture.get("endDate"),
             "dateRangeLabel": fixture.get("dateRangeLabel", "Unknown date range"),
             "siteUrl": fixture.get("siteUrl"),
+            "periodSnapshots": fixture.get("periodSnapshots", {}),
         }

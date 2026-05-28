@@ -1,7 +1,7 @@
 {
   "customerDomain": "acmehealth.com",
   "database": "us",
-  "dateRangeLabel": "Last 28 days",
+  "dateRangeLabel": "Last week data",
   "competitors": [
     { "domain": "healthline.com", "label": "Healthline" },
     { "domain": "examine.com", "label": "Examine" }
@@ -14,30 +14,9 @@
         "domain": "acmehealth.com",
         "columns": ["Ph", "Po", "Nq", "Tr", "Cp", "Ur"],
         "rows": [
-          {
-            "Ph": "best protein for women",
-            "Po": "8",
-            "Nq": "12100",
-            "Tr": "4.2",
-            "Cp": "1.85",
-            "Ur": "https://acmehealth.com/blog/protein-guide"
-          },
-          {
-            "Ph": "vegan collagen myths",
-            "Po": "11",
-            "Nq": "5400",
-            "Tr": "2.1",
-            "Cp": "1.42",
-            "Ur": "https://acmehealth.com/blog/collagen-facts"
-          },
-          {
-            "Ph": "omega 3 benefits",
-            "Po": "14",
-            "Nq": "33100",
-            "Tr": "1.8",
-            "Cp": "0.98",
-            "Ur": "https://acmehealth.com/guides/omega-3"
-          }
+          { "Ph": "best protein for women", "Po": "8", "Nq": "12100", "Tr": "4.4", "Cp": "1.92", "Ur": "https://acmehealth.com/blog/protein-guide" },
+          { "Ph": "vegan collagen myths", "Po": "10", "Nq": "5400", "Tr": "2.3", "Cp": "1.46", "Ur": "https://acmehealth.com/blog/collagen-facts" },
+          { "Ph": "omega 3 benefits", "Po": "13", "Nq": "33100", "Tr": "2.0", "Cp": "1.05", "Ur": "https://acmehealth.com/guides/omega-3" }
         ]
       },
       "healthline.com": {
@@ -46,30 +25,7 @@
         "domain": "healthline.com",
         "columns": ["Ph", "Po", "Nq", "Tr", "Cp", "Ur"],
         "rows": [
-          {
-            "Ph": "best protein for women",
-            "Po": "3",
-            "Nq": "12100",
-            "Tr": "18.4",
-            "Cp": "2.10",
-            "Ur": "https://www.healthline.com/nutrition/best-protein-powder"
-          },
-          {
-            "Ph": "vegan collagen myths",
-            "Po": "5",
-            "Nq": "5400",
-            "Tr": "9.2",
-            "Cp": "1.65",
-            "Ur": "https://www.healthline.com/nutrition/collagen"
-          },
-          {
-            "Ph": "plant based protein powder",
-            "Po": "2",
-            "Nq": "22200",
-            "Tr": "22.1",
-            "Cp": "2.45",
-            "Ur": "https://www.healthline.com/nutrition/plant-based-protein"
-          }
+          { "Ph": "best protein for women", "Po": "3", "Nq": "12100", "Tr": "18.5", "Cp": "2.10", "Ur": "https://www.healthline.com/nutrition/best-protein-powder" }
         ]
       },
       "examine.com": {
@@ -78,30 +34,7 @@
         "domain": "examine.com",
         "columns": ["Ph", "Po", "Nq", "Tr", "Cp", "Ur"],
         "rows": [
-          {
-            "Ph": "omega 3 benefits",
-            "Po": "4",
-            "Nq": "33100",
-            "Tr": "14.6",
-            "Cp": "1.20",
-            "Ur": "https://examine.com/supplements/omega-3/"
-          },
-          {
-            "Ph": "best protein for women",
-            "Po": "9",
-            "Nq": "12100",
-            "Tr": "6.8",
-            "Cp": "1.55",
-            "Ur": "https://examine.com/supplements/whey-protein/"
-          },
-          {
-            "Ph": "collagen supplements",
-            "Po": "6",
-            "Nq": "40500",
-            "Tr": "11.2",
-            "Cp": "1.88",
-            "Ur": "https://examine.com/supplements/collagen/"
-          }
+          { "Ph": "omega 3 benefits", "Po": "4", "Nq": "33100", "Tr": "14.8", "Cp": "1.20", "Ur": "https://examine.com/supplements/omega-3/" }
         ]
       }
     },
@@ -112,24 +45,9 @@
         "domain": "acmehealth.com",
         "columns": ["Ur", "Pc", "Tr", "Po"],
         "rows": [
-          {
-            "Ur": "https://acmehealth.com/blog/protein-guide",
-            "Pc": "142",
-            "Tr": "8.4",
-            "Po": "1"
-          },
-          {
-            "Ur": "https://acmehealth.com/blog/collagen-facts",
-            "Pc": "98",
-            "Tr": "4.1",
-            "Po": "2"
-          },
-          {
-            "Ur": "https://acmehealth.com/guides/omega-3",
-            "Pc": "76",
-            "Tr": "3.2",
-            "Po": "3"
-          }
+          { "Ur": "https://acmehealth.com/blog/protein-guide", "Pc": "146", "Tr": "8.7", "Po": "1" },
+          { "Ur": "https://acmehealth.com/blog/collagen-facts", "Pc": "101", "Tr": "4.4", "Po": "2" },
+          { "Ur": "https://acmehealth.com/guides/omega-3", "Pc": "79", "Tr": "3.5", "Po": "3" }
         ]
       },
       "healthline.com": {
@@ -138,18 +56,9 @@
         "domain": "healthline.com",
         "columns": ["Ur", "Pc", "Tr", "Po"],
         "rows": [
-          {
-            "Ur": "https://www.healthline.com/nutrition/best-protein-powder",
-            "Pc": "890",
-            "Tr": "42.0",
-            "Po": "1"
-          },
-          {
-            "Ur": "https://www.healthline.com/nutrition/collagen",
-            "Pc": "620",
-            "Tr": "28.5",
-            "Po": "2"
-          }
+          { "Ur": "https://www.healthline.com/nutrition/best-protein-powder", "Pc": "382", "Tr": "28.1", "Po": "1" },
+          { "Ur": "https://www.healthline.com/nutrition/vegan-collagen", "Pc": "244", "Tr": "16.4", "Po": "2" },
+          { "Ur": "https://www.healthline.com/nutrition/omega-3-benefits", "Pc": "301", "Tr": "19.3", "Po": "1" }
         ]
       }
     },
@@ -161,20 +70,7 @@
         "columns": ["Dn", "Ur", "Po"],
         "rows": [
           { "Dn": "healthline.com", "Ur": "https://www.healthline.com/nutrition/best-protein-powder", "Po": "1" },
-          { "Dn": "examine.com", "Ur": "https://examine.com/supplements/whey-protein/", "Po": "2" },
-          { "Dn": "forbes.com", "Ur": "https://www.forbes.com/health/supplements/best-protein-powder/", "Po": "3" },
           { "Dn": "acmehealth.com", "Ur": "https://acmehealth.com/blog/protein-guide", "Po": "8" }
-        ]
-      },
-      "vegan collagen myths": {
-        "type": "phrase_organic",
-        "database": "us",
-        "phrase": "vegan collagen myths",
-        "columns": ["Dn", "Ur", "Po"],
-        "rows": [
-          { "Dn": "healthline.com", "Ur": "https://www.healthline.com/nutrition/collagen", "Po": "2" },
-          { "Dn": "acmehealth.com", "Ur": "https://acmehealth.com/blog/collagen-facts", "Po": "5" },
-          { "Dn": "examine.com", "Ur": "https://examine.com/supplements/collagen/", "Po": "7" }
         ]
       }
     },
@@ -185,20 +81,6 @@
         "phrase": "best protein for women",
         "columns": ["Ph", "Kd"],
         "rows": [{ "Ph": "best protein for women", "Kd": "72" }]
-      },
-      "vegan collagen myths": {
-        "type": "phrase_kdi",
-        "database": "us",
-        "phrase": "vegan collagen myths",
-        "columns": ["Ph", "Kd"],
-        "rows": [{ "Ph": "vegan collagen myths", "Kd": "58" }]
-      },
-      "omega 3 benefits": {
-        "type": "phrase_kdi",
-        "database": "us",
-        "phrase": "omega 3 benefits",
-        "columns": ["Ph", "Kd"],
-        "rows": [{ "Ph": "omega 3 benefits", "Kd": "81" }]
       }
     },
     "backlinks_overview": {
@@ -206,46 +88,19 @@
         "type": "backlinks_overview",
         "domain": "acmehealth.com",
         "columns": ["ascore", "total", "domains_num", "urls_num", "follows_num", "nofollows_num"],
-        "rows": [
-          {
-            "ascore": "45",
-            "total": "12840",
-            "domains_num": "890",
-            "urls_num": "11200",
-            "follows_num": "10200",
-            "nofollows_num": "2640"
-          }
-        ]
+        "rows": [{ "ascore": "45", "total": "12840", "domains_num": "890", "urls_num": "11200", "follows_num": "10200", "nofollows_num": "2640" }]
       },
       "healthline.com": {
         "type": "backlinks_overview",
         "domain": "healthline.com",
         "columns": ["ascore", "total", "domains_num", "urls_num", "follows_num", "nofollows_num"],
-        "rows": [
-          {
-            "ascore": "91",
-            "total": "18420000",
-            "domains_num": "98400",
-            "urls_num": "9200000",
-            "follows_num": "16200000",
-            "nofollows_num": "2220000"
-          }
-        ]
+        "rows": [{ "ascore": "91", "total": "18420000", "domains_num": "98400", "urls_num": "9200000", "follows_num": "16200000", "nofollows_num": "2220000" }]
       },
       "examine.com": {
         "type": "backlinks_overview",
         "domain": "examine.com",
         "columns": ["ascore", "total", "domains_num", "urls_num", "follows_num", "nofollows_num"],
-        "rows": [
-          {
-            "ascore": "78",
-            "total": "2104000",
-            "domains_num": "18400",
-            "urls_num": "980000",
-            "follows_num": "1890000",
-            "nofollows_num": "214000"
-          }
-        ]
+        "rows": [{ "ascore": "78", "total": "2104000", "domains_num": "18400", "urls_num": "980000", "follows_num": "1890000", "nofollows_num": "214000" }]
       }
     },
     "position_tracking": {
@@ -256,31 +111,53 @@
       "targetDomain": "acmehealth.com",
       "columns": ["keyword", "position", "previousPosition", "visibility", "competitorBestDomain", "competitorBestPosition"],
       "rows": [
-        {
-          "keyword": "best protein for women",
-          "position": 8,
-          "previousPosition": 11,
-          "visibility": 12.4,
-          "competitorBestDomain": "healthline.com",
-          "competitorBestPosition": 3
-        },
-        {
-          "keyword": "vegan collagen myths",
-          "position": 11,
-          "previousPosition": 14,
-          "visibility": 8.1,
-          "competitorBestDomain": "healthline.com",
-          "competitorBestPosition": 5
-        },
-        {
-          "keyword": "omega 3 benefits",
-          "position": 14,
-          "previousPosition": 16,
-          "visibility": 6.5,
-          "competitorBestDomain": "examine.com",
-          "competitorBestPosition": 4
-        }
+        { "keyword": "best protein for women", "position": 8, "previousPosition": 9, "visibility": 12.9, "competitorBestDomain": "healthline.com", "competitorBestPosition": 3 },
+        { "keyword": "vegan collagen myths", "position": 10, "previousPosition": 11, "visibility": 8.7, "competitorBestDomain": "healthline.com", "competitorBestPosition": 5 },
+        { "keyword": "omega 3 benefits", "position": 13, "previousPosition": 14, "visibility": 6.9, "competitorBestDomain": "examine.com", "competitorBestPosition": 4 }
       ]
     }
+  },
+  "keywordCompetitiveMatrix": {
+    "customerLabel": "Acme",
+    "rows": [
+      {
+        "keyword": "best protein for women",
+        "volume": 12100,
+        "customerPosition": 8,
+        "competitorPosition": 1,
+        "winner": "Healthline",
+        "winnerDomain": "healthline.com",
+        "opportunity": "High"
+      },
+      {
+        "keyword": "omega 3 benefits",
+        "volume": 33100,
+        "customerPosition": 13,
+        "competitorPosition": 4,
+        "winner": "Examine",
+        "winnerDomain": "examine.com",
+        "opportunity": "High"
+      },
+      {
+        "keyword": "vegan collagen myths",
+        "volume": 5400,
+        "customerPosition": 10,
+        "competitorPosition": 5,
+        "winner": "Healthline",
+        "winnerDomain": "healthline.com",
+        "opportunity": "Medium"
+      }
+    ]
+  },
+  "periodSnapshots": {
+    "currentWeek": { "label": "Current week data", "authorityScore": 45, "referringDomains": 894, "trackedKeywordsTop20": 134 },
+    "lastWeek": { "label": "Last week data", "authorityScore": 45, "referringDomains": 890, "trackedKeywordsTop20": 132 },
+    "bestWeek": { "label": "Best week data", "authorityScore": 46, "referringDomains": 902, "trackedKeywordsTop20": 141 },
+    "currentMonth": { "label": "Current month data", "authorityScore": 46, "referringDomains": 918, "trackedKeywordsTop20": 143 },
+    "lastMonth": { "label": "Last month data", "authorityScore": 45, "referringDomains": 890, "trackedKeywordsTop20": 136 },
+    "bestMonth": { "label": "Best month data", "authorityScore": 47, "referringDomains": 934, "trackedKeywordsTop20": 149 },
+    "currentQuarter": { "label": "Current quarter data", "authorityScore": 46, "referringDomains": 926, "trackedKeywordsTop20": 147 },
+    "lastQuarter": { "label": "Last quarter data", "authorityScore": 44, "referringDomains": 861, "trackedKeywordsTop20": 128 },
+    "bestQuarter": { "label": "Best quarter data", "authorityScore": 48, "referringDomains": 962, "trackedKeywordsTop20": 156 }
   }
 }

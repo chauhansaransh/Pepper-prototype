@@ -181,4 +181,6 @@ def normalize_semrush_payload(payload: Dict[str, Any]) -> Dict[str, Any]:
         "competitorSummaries": (payload.get("competitorSummaries") or [])[:3],
         "phraseInsights": (payload.get("phraseInsights") or [])[:5],
         "positionTracking": payload.get("positionTracking", {}),
+        "periodSnapshots": payload.get("periodSnapshots", {}),
+        "keywordCompetitiveMatrix": payload.get("keywordCompetitiveMatrix", {}),
     }

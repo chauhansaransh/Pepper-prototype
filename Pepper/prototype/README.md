@@ -2,7 +2,7 @@
 
 ## What it does
 1. **Configure** — Select customer, report template (Weekly / Monthly / Quarterly), and optional instructions
-2. **Report** — Auto-pulls data per template, generates HTML report with charts and Gemini narrative (OpenRouter fallback); edit or download PDF
+2. **Report** — Auto-pulls data per template, generates HTML report with charts and OpenRouter narrative; edit or download PDF
 
 Report templates live in [`config/report_templates/`](config/report_templates/) (YAML). Each template defines which sources and APIs to use—no manual data selection in the UI.
 
@@ -12,10 +12,8 @@ cd /Users/saranshchauhan/Documents/Pepper/prototype
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-export GEMINI_API_KEY="your-gemini-api-key-here"
-export GEMINI_MODEL="gemini-2.5-flash"   # optional
-# Optional fallback if Gemini fails:
 export OPENROUTER_API_KEY="sk-or-v1-your-key-here"
+export OPENROUTER_MODEL="openai/gpt-oss-120b:free"   # optional
 ```
 
 Copy `.env.example` to `.env` for local reference (do not commit `.env`).
@@ -26,6 +24,8 @@ python engine/api_server.py
 ```
 
 Open: http://127.0.0.1:8000
+
+For production / sharing on the internet, see **[Deploy guide](docs/deploy.md)** (Render, Railway, Docker).
 
 ## API
 
@@ -71,7 +71,6 @@ Serves chart PNGs for HTML report preview.
 - `outputs/charts/*.png`
 
 ## Environment variables
-- `GEMINI_API_KEY` — primary (Google AI Studio)
-- `GEMINI_MODEL` — default `gemini-2.5-flash`
-- `OPENROUTER_API_KEY` — optional fallback
-- `OPENROUTER_MODEL`, `OPENROUTER_HTTP_REFERER`, `OPENROUTER_APP_TITLE` — optional OpenRouter settings
+- `OPENROUTER_API_KEY` — required for LLM narratives and insights
+- `OPENROUTER_MODEL` — default `openai/gpt-oss-120b:free`
+- `OPENROUTER_HTTP_REFERER`, `OPENROUTER_APP_TITLE` — optional OpenRouter metadata headers

@@ -38,6 +38,11 @@ DATA_SOURCE_SPECS: Dict[str, Dict[str, Any]] = {
         "api": "report",
         "itemPatterns": ["semrush.*"],
     },
+    "semrush.reports": {
+        "sourceId": "semrush",
+        "api": "report",
+        "itemPatterns": ["semrush.*"],
+    },
     "semrush_ai.ai_visibility_overview": {
         "sourceId": "semrush-ai",
         "api": "ai_visibility_overview",

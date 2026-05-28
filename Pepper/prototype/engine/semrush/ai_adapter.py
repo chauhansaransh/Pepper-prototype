@@ -34,4 +34,6 @@ def normalize_semrush_ai_payload(payload: Dict[str, Any]) -> Dict[str, Any]:
         "visibilityOverview": overview,
         "promptMentions": (payload.get("promptMentions") or [])[:6],
         "citationTracking": (payload.get("citationTracking") or [])[:5],
+        "periodSnapshots": payload.get("periodSnapshots", {}),
+        "aiPerformanceMatrix": payload.get("aiPerformanceMatrix", {}),
     }

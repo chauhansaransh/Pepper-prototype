@@ -1,88 +1,65 @@
 {
   "customerDomain": "acmehealth.com",
-  "dateRangeLabel": "Last 28 days",
+  "dateRangeLabel": "Last week data",
   "reports": {
     "ai_visibility_overview": {
-      "type": "ai_visibility_overview",
-      "domain": "acmehealth.com",
-      "metrics": {
-        "visibilityScore": 34,
-        "mentions": 128,
-        "citations": 86,
-        "citedPages": 42,
-        "monthlyAudience": 418000
-      },
-      "byLlm": [
-        { "platform": "chatgpt", "mentions": 52, "citations": 38, "visibilityShare": 41.2 },
-        { "platform": "google_ai_overview", "mentions": 44, "citations": 28, "visibilityShare": 32.8 },
-        { "platform": "gemini", "mentions": 32, "citations": 20, "visibilityShare": 26.0 }
-      ],
-      "competitorComparison": [
-        { "domain": "healthline.com", "visibilityScore": 71, "mentions": 420, "citations": 310 },
-        { "domain": "examine.com", "visibilityScore": 58, "mentions": 285, "citations": 198 },
-        { "domain": "acmehealth.com", "visibilityScore": 34, "mentions": 128, "citations": 86 }
-      ]
+      "brandPromptShare": 21.4,
+      "competitivePromptShare": 14.8,
+      "estimatedAiMentions": 164,
+      "sentimentMix": { "positive": 61, "neutral": 30, "negative": 9 }
     },
     "ai_prompt_mentions": {
-      "type": "ai_prompt_mentions",
-      "domain": "acmehealth.com",
-      "rows": [
-        {
-          "prompt": "best protein for women",
-          "brandMentioned": true,
-          "platforms": ["chatgpt", "google_ai_overview"],
-          "audience": 12400,
-          "competitorsMentioned": ["healthline.com", "forbes.com"]
-        },
-        {
-          "prompt": "vegan collagen myths",
-          "brandMentioned": true,
-          "platforms": ["gemini"],
-          "audience": 5800,
-          "competitorsMentioned": ["healthline.com"]
-        },
-        {
-          "prompt": "omega 3 benefits",
-          "brandMentioned": false,
-          "platforms": ["chatgpt", "gemini", "google_ai_overview"],
-          "audience": 34200,
-          "competitorsMentioned": ["examine.com", "healthline.com", "webmd.com"]
-        },
-        {
-          "prompt": "how much protein per day for women",
-          "brandMentioned": true,
-          "platforms": ["google_ai_overview"],
-          "audience": 18900,
-          "competitorsMentioned": ["healthline.com"]
-        }
+      "prompts": [
+        { "prompt": "best protein supplements for women", "mentions": 34, "rank": 3 },
+        { "prompt": "is vegan collagen useful", "mentions": 27, "rank": 4 },
+        { "prompt": "omega 3 dosage by age", "mentions": 19, "rank": 6 }
       ]
     },
     "ai_citation_tracking": {
-      "type": "ai_citation_tracking",
-      "domain": "acmehealth.com",
-      "rows": [
-        {
-          "url": "https://acmehealth.com/blog/protein-guide",
-          "citationCount": 38,
-          "avgCitationPosition": 2.1,
-          "platforms": ["chatgpt", "google_ai_overview"],
-          "promptsCitedIn": 24
-        },
-        {
-          "url": "https://acmehealth.com/blog/collagen-facts",
-          "citationCount": 22,
-          "avgCitationPosition": 3.4,
-          "platforms": ["gemini", "chatgpt"],
-          "promptsCitedIn": 14
-        },
-        {
-          "url": "https://acmehealth.com/guides/omega-3",
-          "citationCount": 12,
-          "avgCitationPosition": 4.8,
-          "platforms": ["google_ai_overview"],
-          "promptsCitedIn": 9
-        }
+      "citations": [
+        { "source": "ChatGPT", "count": 58 },
+        { "source": "Gemini", "count": 49 },
+        { "source": "Perplexity", "count": 34 }
       ]
     }
+  },
+  "aiPerformanceMatrix": {
+    "rows": [
+      {
+        "platform": "Overall",
+        "visibilityShare": 21.4,
+        "mentions": 164,
+        "citations": 141
+      },
+      {
+        "platform": "ChatGPT",
+        "visibilityShare": 12.8,
+        "mentions": 58,
+        "citations": 58
+      },
+      {
+        "platform": "Gemini",
+        "visibilityShare": 10.2,
+        "mentions": 49,
+        "citations": 49
+      },
+      {
+        "platform": "Perplexity",
+        "visibilityShare": 7.1,
+        "mentions": 34,
+        "citations": 34
+      }
+    ]
+  },
+  "periodSnapshots": {
+    "currentWeek": { "label": "Current week data", "estimatedAiMentions": 171, "brandPromptShare": 22.0 },
+    "lastWeek": { "label": "Last week data", "estimatedAiMentions": 164, "brandPromptShare": 21.4 },
+    "bestWeek": { "label": "Best week data", "estimatedAiMentions": 188, "brandPromptShare": 24.3 },
+    "currentMonth": { "label": "Current month data", "estimatedAiMentions": 662, "brandPromptShare": 21.8 },
+    "lastMonth": { "label": "Last month data", "estimatedAiMentions": 629, "brandPromptShare": 20.6 },
+    "bestMonth": { "label": "Best month data", "estimatedAiMentions": 704, "brandPromptShare": 23.4 },
+    "currentQuarter": { "label": "Current quarter data", "estimatedAiMentions": 1984, "brandPromptShare": 21.9 },
+    "lastQuarter": { "label": "Last quarter data", "estimatedAiMentions": 1872, "brandPromptShare": 20.2 },
+    "bestQuarter": { "label": "Best quarter data", "estimatedAiMentions": 2128, "brandPromptShare": 24.0 }
   }
 }

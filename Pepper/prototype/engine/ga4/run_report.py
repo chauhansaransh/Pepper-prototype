@@ -79,4 +79,6 @@ class MockRunReportClient:
             "startDate": fixture.get("startDate"),
             "endDate": fixture.get("endDate"),
             "dateRangeLabel": fixture.get("dateRangeLabel", "Unknown date range"),
+            "lastWeekSegments": fixture.get("lastWeekSegments", {}),
+            "periodSnapshots": fixture.get("periodSnapshots", {}),
         }

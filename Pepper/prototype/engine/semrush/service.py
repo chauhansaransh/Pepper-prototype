@@ -90,7 +90,7 @@ class SemrushMockService:
             "position_tracking", customer_id=customer_id
         )
 
-        return build_legacy_customer_payload(
+        payload = build_legacy_customer_payload(
             customer_domain=customer_domain,
             competitors=competitors,
             domain_organic_by_domain=domain_organic_by_domain,
@@ -101,6 +101,9 @@ class SemrushMockService:
             position_tracking=position_tracking,
             date_range_label=meta["dateRangeLabel"],
         )
+        payload["periodSnapshots"] = meta.get("periodSnapshots", {})
+        payload["keywordCompetitiveMatrix"] = meta.get("keywordCompetitiveMatrix", {})
+        return payload
 
     def fetch_ai_report(self, customer_id: str, report_type: str) -> Dict[str, Any]:
         self.get_customer(customer_id)
@@ -118,10 +121,13 @@ class SemrushMockService:
         citations = self._ai_client.fetch_report(
             "ai_citation_tracking", customer_id=customer_id
         )
-        return build_ai_legacy_payload(
+        payload = build_ai_legacy_payload(
             visibility,
             prompts,
             citations,
             ai_meta["dateRangeLabel"],
             ai_meta["customerDomain"],
         )
+        payload["periodSnapshots"] = ai_meta.get("periodSnapshots", {})
+        payload["aiPerformanceMatrix"] = ai_meta.get("aiPerformanceMatrix", {})
+        return payload

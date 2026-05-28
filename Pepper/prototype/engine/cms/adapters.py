@@ -31,6 +31,7 @@ def normalize_wordpress_payload(
         "endpoint": api_response.get("endpoint", "/wp-json/wp/v2/posts"),
         "totalItems": api_response.get("totalItems", len(posts)),
         "posts": posts,
+        "periodSnapshots": api_response.get("periodSnapshots", {}),
     }
 
 
@@ -59,6 +60,7 @@ def normalize_webflow_payload(
         "endpoint": api_response.get("endpoint", ""),
         "totalItems": int(pagination.get("total", len(items_out))),
         "items": items_out,
+        "periodSnapshots": api_response.get("periodSnapshots", {}),
     }
 
 
@@ -89,4 +91,5 @@ def normalize_contentful_payload(
         "endpoint": api_response.get("endpoint", ""),
         "total": api_response.get("total", len(entries_out)),
         "entries": entries_out,
+        "periodSnapshots": api_response.get("periodSnapshots", {}),
     }

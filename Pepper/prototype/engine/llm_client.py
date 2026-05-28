@@ -7,11 +7,29 @@ except ImportError:
     from .prompts import build_storytelling_prompt, build_template_storytelling_prompt
 
 
-GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.5-flash")
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 OPENROUTER_MODEL = os.environ.get("OPENROUTER_MODEL", "openai/gpt-oss-120b:free")
 OPENROUTER_REFERER = os.environ.get("OPENROUTER_HTTP_REFERER", "http://localhost:8000")
 OPENROUTER_APP_TITLE = os.environ.get("OPENROUTER_APP_TITLE", "Pepper AI Builder Prototype")
+
+_POINTER_WRITING_RULES = """
+Writing rules (strict):
+- Output markdown bullets only (- ), no headings or preamble.
+- Each bullet is 1-2 complete sentences (about 25-50 words).
+- Cite specific values from the table: metric names, numbers, % changes, page paths, queries, or statuses.
+- Do not invent metrics, URLs, queries, or trends that are not in the table.
+- Explain what the data shows and the recommended next step.
+- Professional Customer Success tone; complete thoughts, not telegraphic fragments.
+"""
+
+_RECOMMENDATION_WRITING_RULES = """
+Writing rules (strict):
+- Output exactly 4 markdown bullets (- ), no headings or preamble.
+- Each bullet is 1-2 complete sentences (about 30-55 words).
+- Ground every recommendation in the weekly report tables (cite metrics, pages, queries, competitors, or URLs).
+- Do not invent data; if something is unclear, recommend verifying it in the source tools.
+- Prioritize highest-impact actions across SEO, content, technical, and competitive areas.
+"""
 
 
 def generate_narrative_report(
@@ -46,55 +64,151 @@ def generate_template_narrative_report(
     return _run_llm(prompt)
 
 
-def _run_llm(prompt: str) -> Tuple[Optional[str], Optional[str], str]:
-    """Returns (markdown, error_message, llm_provider)."""
-    errors: list[str] = []
-    gemini_key = os.environ.get("GEMINI_API_KEY", "").strip()
-    openrouter_key = os.environ.get("OPENROUTER_API_KEY", "").strip()
+def _run_pointer_llm(prompt: str) -> Tuple[Optional[str], Optional[str], str]:
+    return _run_llm(prompt, max_tokens=600)
 
-    if gemini_key:
-        narrative, err = _call_gemini(prompt, gemini_key)
-        if narrative:
-            return narrative, None, "gemini"
-        if err:
-            errors.append(err)
 
-    if openrouter_key:
-        narrative, err = _call_openrouter(prompt, openrouter_key)
-        if narrative:
-            return narrative, None, "openrouter"
-        if err:
-            errors.append(err)
+def generate_executive_table_insights(
+    customer_name: str,
+    report_type: str,
+    executive_table_markdown: str,
+    instructions: str,
+) -> Tuple[Optional[str], Optional[str], str]:
+    safe_instructions = instructions.strip() or "No additional CSM instructions."
+    prompt = f"""You are a senior Customer Success analyst.
+Generate 2-3 insights for the Executive Summary section.
 
-    if not gemini_key and not openrouter_key:
+Customer: {customer_name}
+Report type: {report_type}
+CSM instructions: {safe_instructions}
+
+Use ONLY the executive summary table below.
+Each bullet must reference at least one metric with its current value and week-over-week % change.
+{_POINTER_WRITING_RULES}
+
+Executive Summary Table:
+{executive_table_markdown}
+"""
+    return _run_pointer_llm(prompt)
+
+
+def generate_deliverables_status_pointers(
+    customer_name: str,
+    report_type: str,
+    deliverables_table_markdown: str,
+    instructions: str,
+) -> Tuple[Optional[str], Optional[str], str]:
+    safe_instructions = instructions.strip() or "No additional CSM instructions."
+    prompt = f"""You are a senior Customer Success analyst.
+Generate 2-3 insights for the Deliverables section.
+
+Customer: {customer_name}
+Report type: {report_type}
+CSM instructions: {safe_instructions}
+
+Use ONLY the deliverables table below.
+Each bullet must name a specific content item or CMS row and the action needed.
+{_POINTER_WRITING_RULES}
+
+Deliverables Table:
+{deliverables_table_markdown}
+"""
+    return _run_pointer_llm(prompt)
+
+
+def generate_top_pages_pointers(
+    customer_name: str,
+    report_type: str,
+    top_pages_table_markdown: str,
+    instructions: str,
+) -> Tuple[Optional[str], Optional[str], str]:
+    safe_instructions = instructions.strip() or "No additional CSM instructions."
+    prompt = f"""You are a senior SEO and Customer Success analyst.
+Generate 2-3 insights for the Top Pages section.
+
+Customer: {customer_name}
+Report type: {report_type}
+CSM instructions: {safe_instructions}
+
+Use ONLY the top pages table below.
+Each bullet must name a page path and cite clicks, impressions, CTR, or position from the table.
+{_POINTER_WRITING_RULES}
+
+Top Pages Table:
+{top_pages_table_markdown}
+"""
+    return _run_pointer_llm(prompt)
+
+
+def generate_top_queries_pointers(
+    customer_name: str,
+    report_type: str,
+    top_queries_table_markdown: str,
+    instructions: str,
+) -> Tuple[Optional[str], Optional[str], str]:
+    safe_instructions = instructions.strip() or "No additional CSM instructions."
+    prompt = f"""You are a senior SEO and Customer Success analyst.
+Generate 2-3 insights for the Top Queries section.
+
+Customer: {customer_name}
+Report type: {report_type}
+CSM instructions: {safe_instructions}
+
+Use ONLY the top queries table below.
+Each bullet must name a query and cite clicks, impressions, CTR, or average position from the table.
+{_POINTER_WRITING_RULES}
+
+Top Queries Table:
+{top_queries_table_markdown}
+"""
+    return _run_pointer_llm(prompt)
+
+
+def generate_weekly_recommendations(
+    customer_name: str,
+    report_type: str,
+    report_markdown: str,
+    instructions: str,
+) -> Tuple[Optional[str], Optional[str], str]:
+    safe_instructions = instructions.strip() or "No additional CSM instructions."
+    prompt = f"""You are a senior Customer Success and SEO lead.
+Write 4-5 recommendations for the final Recommendations section.
+
+Customer: {customer_name}
+Report type: {report_type}
+CSM instructions: {safe_instructions}
+
+Read the full weekly report below (all tables and section insights).
+Prioritize the highest-impact next steps and cover different areas (SEO, content, technical, competitive) when the data supports it.
+{_RECOMMENDATION_WRITING_RULES}
+
+Weekly Report:
+{report_markdown}
+"""
+    return _run_llm(prompt, max_tokens=1024)
+
+
+def _run_llm(
+    prompt: str, *, max_tokens: int = 2500
+) -> Tuple[Optional[str], Optional[str], str]:
+    """Returns (markdown, error_message, llm_provider). Uses OpenRouter only."""
+    api_key = os.environ.get("OPENROUTER_API_KEY", "").strip()
+    if not api_key:
         return (
             None,
-            "No LLM API keys configured. Set GEMINI_API_KEY and/or OPENROUTER_API_KEY.",
+            "No LLM API key configured. Set OPENROUTER_API_KEY.",
             "none",
         )
 
-    combined = " | ".join(errors) if errors else "All LLM providers failed."
-    return None, combined, "none"
+    narrative, err = _call_openrouter(prompt, api_key, max_tokens=max_tokens)
+    if narrative:
+        return narrative, None, "openrouter"
+    return None, err or "OpenRouter request failed.", "none"
 
 
-def _call_gemini(prompt: str, api_key: str) -> Tuple[Optional[str], Optional[str]]:
-    try:
-        from google import genai
-
-        client = genai.Client(api_key=api_key)
-        response = client.models.generate_content(
-            model=GEMINI_MODEL,
-            contents=prompt,
-        )
-        narrative = (response.text or "").strip()
-        if not narrative:
-            return None, "Gemini returned an empty response."
-        return narrative, None
-    except Exception as exc:
-        return None, f"Gemini API error: {exc}"
-
-
-def _call_openrouter(prompt: str, api_key: str) -> Tuple[Optional[str], Optional[str]]:
+def _call_openrouter(
+    prompt: str, api_key: str, *, max_tokens: int = 2500
+) -> Tuple[Optional[str], Optional[str]]:
     try:
         from openai import OpenAI
 
@@ -108,7 +222,8 @@ def _call_openrouter(prompt: str, api_key: str) -> Tuple[Optional[str], Optional
         )
         completion = client.chat.completions.create(
             model=OPENROUTER_MODEL,
-            max_tokens=2500,
+            max_tokens=max_tokens,
+            temperature=0.35,
             messages=[{"role": "user", "content": prompt}],
         )
         narrative = (completion.choices[0].message.content or "").strip()

@@ -9,12 +9,17 @@
   background: linear-gradient(135deg, #4255ff 0%, #3344db 100%);
   color: #fff;
   padding: 28px 40px;
+  text-align: center;
 }
 
 .report-brand-row {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 16px;
+  justify-content: center;
+  gap: 12px;
+  max-width: 640px;
+  margin: 0 auto;
 }
 
 .report-logo {
@@ -36,12 +41,12 @@
 }
 
 .report-hero h1 {
-  margin: 0 0 8px;
+  margin: 0;
   font-size: 28px;
 }
 
 .report-meta {
-  margin: 0 0 12px;
+  margin: 0;
   opacity: 0.9;
 }
 
@@ -66,7 +71,7 @@
 }
 
 .report-content {
-  max-width: 900px;
+  max-width: 1120px;
   margin: 0 auto;
   padding: 32px 24px 48px;
 }
@@ -91,29 +96,85 @@
 
 .chart-grid {
   display: grid;
-  gap: 20px;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.narrative .chart-card {
+  margin: 10px 0 18px;
 }
 
 .chart-card {
   background: #fff;
   border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 12px;
+  border-radius: 14px;
+  padding: 10px 10px 8px;
   margin: 0;
+  box-shadow: 0 5px 14px rgba(15, 23, 42, 0.05);
+  position: relative;
+  overflow: hidden;
 }
 
 .chart-card img {
   width: 100%;
-  height: auto;
+  max-height: 240px;
+  object-fit: contain;
   display: block;
   border-radius: 8px;
 }
 
 .chart-card figcaption {
-  margin-top: 8px;
-  font-size: 13px;
-  color: #64748b;
+  margin-top: 6px;
+  font-size: 11.5px;
+  color: #475569;
   text-align: center;
+  font-weight: 500;
+}
+
+.md-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0 16px;
+  font-size: 13px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.md-table thead th {
+  text-align: left;
+  background: #f8fafc;
+  color: #334155;
+  font-weight: 600;
+  padding: 9px 10px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.md-table td {
+  padding: 9px 10px;
+  border-bottom: 1px solid #eef2f7;
+  color: #334155;
+  vertical-align: top;
+}
+
+.md-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.trend-up {
+  color: #15803d;
+  font-weight: 600;
+}
+
+.trend-down {
+  color: #b91c1c;
+  font-weight: 600;
+}
+
+.trend-flat {
+  color: #475569;
+  font-weight: 600;
 }
 
 .report-footer {
@@ -129,11 +190,15 @@
   }
 
   .report-brand-row {
-    align-items: flex-start;
+    align-items: center;
   }
 
   .report-logo {
     width: 46px;
     height: 46px;
+  }
+
+  .chart-grid {
+    grid-template-columns: 1fr;
   }
 }

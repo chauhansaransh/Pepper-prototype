@@ -51,6 +51,8 @@ class MockSemrushClient:
             "competitors": fixture.get("competitors", []),
             "phraseOrganicPhrases": sorted((reports.get("phrase_organic") or {}).keys()),
             "phraseKdiPhrases": sorted((reports.get("phrase_kdi") or {}).keys()),
+            "periodSnapshots": fixture.get("periodSnapshots", {}),
+            "keywordCompetitiveMatrix": fixture.get("keywordCompetitiveMatrix", {}),
         }
 
     def fetch_report(

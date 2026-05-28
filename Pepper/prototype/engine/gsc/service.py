@@ -74,12 +74,14 @@ class GscMockService:
             dimensions=["page"],
             customer_id=customer_id,
         )
-        return build_legacy_customer_payload(
+        payload = build_legacy_customer_payload(
             property_response,
             query_response,
             page_response,
             meta["dateRangeLabel"],
         )
+        payload["periodSnapshots"] = meta.get("periodSnapshots", {})
+        return payload
 
     def url_inspection_inspect(self, customer_id: str, inspection_url: str) -> Dict[str, Any]:
         customer = self.get_customer(customer_id)

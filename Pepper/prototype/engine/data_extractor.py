@@ -755,4 +755,5 @@ def filter_normalized_by_selection(
         "totals": totals,
         "topQueries": filtered_queries,
         "topPages": filtered_pages,
+        "periodSnapshots": normalized.get("periodSnapshots", {}),
     }

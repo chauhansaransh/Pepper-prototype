@@ -2,13 +2,13 @@
   "endpoint": "/v2/collections/64a1f2e8blogposts/items/live",
   "collectionId": "64a1f2e8blogposts",
   "siteId": "wf_site_acme",
-  "dateRangeLabel": "Live CMS items",
+  "dateRangeLabel": "Last week data",
   "items": [
     {
       "id": "65f8a1b2c3d4e50012ab3401",
       "cmsLocaleId": "65f8a1b2c3d4e50012ab3001",
-      "lastPublished": "2026-04-18T14:22:00.000Z",
-      "lastUpdated": "2026-04-18T14:22:00.000Z",
+      "lastPublished": "2026-05-03T14:22:00.000Z",
+      "lastUpdated": "2026-05-03T14:22:00.000Z",
       "isArchived": false,
       "isDraft": false,
       "fieldData": {
@@ -16,14 +16,14 @@
         "slug": "protein-guide",
         "url-path": "/blog/protein-guide",
         "meta-description": "Choose the right protein for your goals.",
-        "publish-date": "2026-03-12T09:15:00.000Z"
+        "publish-date": "2026-04-28T09:15:00.000Z"
       }
     },
     {
       "id": "65f8a1b2c3d4e50012ab3402",
       "cmsLocaleId": "65f8a1b2c3d4e50012ab3001",
-      "lastPublished": "2026-04-10T08:05:00.000Z",
-      "lastUpdated": "2026-04-10T08:05:00.000Z",
+      "lastPublished": "2026-05-04T08:05:00.000Z",
+      "lastUpdated": "2026-05-04T08:05:00.000Z",
       "isArchived": false,
       "isDraft": false,
       "fieldData": {
@@ -31,14 +31,14 @@
         "slug": "collagen-facts",
         "url-path": "/blog/collagen-facts",
         "meta-description": "Evidence-based collagen supplement guide.",
-        "publish-date": "2026-02-20T11:40:00.000Z"
+        "publish-date": "2026-04-30T11:40:00.000Z"
       }
     },
     {
       "id": "65f8a1b2c3d4e50012ab3403",
       "cmsLocaleId": "65f8a1b2c3d4e50012ab3001",
-      "lastPublished": "2026-03-28T10:30:00.000Z",
-      "lastUpdated": "2026-03-28T10:30:00.000Z",
+      "lastPublished": "2026-05-05T10:30:00.000Z",
+      "lastUpdated": "2026-05-05T10:30:00.000Z",
       "isArchived": false,
       "isDraft": false,
       "fieldData": {
@@ -46,9 +46,13 @@
         "slug": "omega-3",
         "url-path": "/guides/omega-3",
         "meta-description": "EPA, DHA, and ALA for daily wellness.",
-        "publish-date": "2026-01-08T16:00:00.000Z"
+        "publish-date": "2026-05-02T16:10:00.000Z"
       }
     }
   ],
-  "pagination": { "limit": 100, "offset": 0, "total": 3 }
+  "pagination": {
+    "limit": 100,
+    "offset": 0,
+    "total": 3
+  }
 }

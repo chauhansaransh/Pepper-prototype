@@ -1,8 +1,8 @@
 {
   "propertyId": "properties/100000002",
-  "startDate": "2026-04-01",
-  "endDate": "2026-04-28",
-  "dateRangeLabel": "Last 28 days",
+  "startDate": "2026-04-29",
+  "endDate": "2026-05-05",
+  "dateRangeLabel": "Last week data",
   "reports": {
     "propertyTotals": {
       "dimensionHeaders": [],
@@ -17,11 +17,11 @@
         {
           "dimensionValues": [],
           "metricValues": [
-            { "value": "31800" },
-            { "value": "26400" },
-            { "value": "20100" },
-            { "value": "0.6321" },
-            { "value": "1240" }
+            { "value": "7640" },
+            { "value": "6380" },
+            { "value": "4890" },
+            { "value": "0.6401" },
+            { "value": "304" }
           ]
         }
       ],
@@ -35,26 +35,11 @@
         { "name": "activeUsers", "type": "TYPE_INTEGER" }
       ],
       "rows": [
-        {
-          "dimensionValues": [{ "value": "Organic Search" }],
-          "metricValues": [{ "value": "12880" }, { "value": "10940" }]
-        },
-        {
-          "dimensionValues": [{ "value": "Direct" }],
-          "metricValues": [{ "value": "9200" }, { "value": "8100" }]
-        },
-        {
-          "dimensionValues": [{ "value": "Paid Search" }],
-          "metricValues": [{ "value": "5400" }, { "value": "4900" }]
-        },
-        {
-          "dimensionValues": [{ "value": "Referral" }],
-          "metricValues": [{ "value": "2820" }, { "value": "2460" }]
-        },
-        {
-          "dimensionValues": [{ "value": "Email" }],
-          "metricValues": [{ "value": "1500" }, { "value": "1000" }]
-        }
+        { "dimensionValues": [{ "value": "Organic Search" }], "metricValues": [{ "value": "3220" }, { "value": "2740" }] },
+        { "dimensionValues": [{ "value": "Direct" }], "metricValues": [{ "value": "1960" }, { "value": "1640" }] },
+        { "dimensionValues": [{ "value": "Paid Search" }], "metricValues": [{ "value": "1280" }, { "value": "1110" }] },
+        { "dimensionValues": [{ "value": "Referral" }], "metricValues": [{ "value": "760" }, { "value": "650" }] },
+        { "dimensionValues": [{ "value": "Email" }], "metricValues": [{ "value": "420" }, { "value": "240" }] }
       ],
       "rowCount": 5,
       "metadata": { "currencyCode": "USD", "timeZone": "America/Chicago" }
@@ -68,36 +53,40 @@
         { "name": "averageSessionDuration", "type": "TYPE_SECONDS" }
       ],
       "rows": [
-        {
-          "dimensionValues": [{ "value": "/loans/pre-approval" }],
-          "metricValues": [
-            { "value": "3920" },
-            { "value": "3340" },
-            { "value": "0.361" },
-            { "value": "168" }
-          ]
-        },
-        {
-          "dimensionValues": [{ "value": "/blog/fixed-vs-floating" }],
-          "metricValues": [
-            { "value": "2680" },
-            { "value": "2310" },
-            { "value": "0.392" },
-            { "value": "124" }
-          ]
-        },
-        {
-          "dimensionValues": [{ "value": "/guides/credit-score" }],
-          "metricValues": [
-            { "value": "2150" },
-            { "value": "1890" },
-            { "value": "0.428" },
-            { "value": "102" }
-          ]
-        }
+        { "dimensionValues": [{ "value": "/loans/pre-approval" }], "metricValues": [{ "value": "1380" }, { "value": "1170" }, { "value": "0.352" }, { "value": "176" }] },
+        { "dimensionValues": [{ "value": "/blog/fixed-vs-floating" }], "metricValues": [{ "value": "920" }, { "value": "780" }, { "value": "0.388" }, { "value": "130" }] },
+        { "dimensionValues": [{ "value": "/guides/credit-score" }], "metricValues": [{ "value": "760" }, { "value": "640" }, { "value": "0.417" }, { "value": "108" }] }
       ],
       "rowCount": 3,
       "metadata": { "currencyCode": "USD", "timeZone": "America/Chicago" }
     }
+  },
+  "lastWeekSegments": {
+    "byDeviceCategory": [
+      { "deviceCategory": "mobile", "sessions": 4380, "activeUsers": 3680, "engagementRate": 0.631 },
+      { "deviceCategory": "desktop", "sessions": 2740, "activeUsers": 2270, "engagementRate": 0.651 },
+      { "deviceCategory": "tablet", "sessions": 520, "activeUsers": 430, "engagementRate": 0.672 }
+    ],
+    "byCountry": [
+      { "country": "United States", "sessions": 5720, "conversions": 238 },
+      { "country": "Canada", "sessions": 880, "conversions": 31 },
+      { "country": "United Kingdom", "sessions": 620, "conversions": 20 },
+      { "country": "Australia", "sessions": 420, "conversions": 15 }
+    ],
+    "byUserType": [
+      { "userType": "new", "sessions": 5010, "activeUsers": 4320 },
+      { "userType": "returning", "sessions": 2630, "activeUsers": 2060 }
+    ]
+  },
+  "periodSnapshots": {
+    "currentWeek": { "label": "Current week data", "totals": { "sessions": 7780, "activeUsers": 6490, "engagedSessions": 5010, "engagementRate": 0.6439, "conversions": 318 } },
+    "lastWeek": { "label": "Last week data", "totals": { "sessions": 7640, "activeUsers": 6380, "engagedSessions": 4890, "engagementRate": 0.6401, "conversions": 304 } },
+    "bestWeek": { "label": "Best week data", "totals": { "sessions": 8320, "activeUsers": 6940, "engagedSessions": 5450, "engagementRate": 0.6550, "conversions": 352 } },
+    "currentMonth": { "label": "Current month data", "totals": { "sessions": 33410, "activeUsers": 27640, "engagedSessions": 21280, "engagementRate": 0.6369, "conversions": 1324 } },
+    "lastMonth": { "label": "Last month data", "totals": { "sessions": 32740, "activeUsers": 27120, "engagedSessions": 20620, "engagementRate": 0.6298, "conversions": 1278 } },
+    "bestMonth": { "label": "Best month data", "totals": { "sessions": 34920, "activeUsers": 28710, "engagedSessions": 22340, "engagementRate": 0.6397, "conversions": 1392 } },
+    "currentQuarter": { "label": "Current quarter data", "totals": { "sessions": 96180, "activeUsers": 79540, "engagedSessions": 60420, "engagementRate": 0.6282, "conversions": 3720 } },
+    "lastQuarter": { "label": "Last quarter data", "totals": { "sessions": 93400, "activeUsers": 77280, "engagedSessions": 58620, "engagementRate": 0.6276, "conversions": 3610 } },
+    "bestQuarter": { "label": "Best quarter data", "totals": { "sessions": 99540, "activeUsers": 82110, "engagedSessions": 63400, "engagementRate": 0.6369, "conversions": 3894 } }
   }
 }

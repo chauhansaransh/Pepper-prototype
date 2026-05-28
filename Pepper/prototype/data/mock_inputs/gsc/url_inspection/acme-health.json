@@ -1,75 +1,41 @@
 {
   "siteUrl": "sc-domain:acmehealth.com",
+  "dateRangeLabel": "Last week data",
   "inspections": {
     "https://acmehealth.com/blog/protein-guide": {
       "inspectionResult": {
-        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain%3Aacmehealth.com&id=mock-protein-guide",
         "indexStatusResult": {
           "verdict": "PASS",
           "coverageState": "Submitted and indexed",
-          "robotsTxtState": "ALLOWED",
           "indexingState": "INDEXING_ALLOWED",
-          "lastCrawlTime": "2026-04-25T08:12:00Z",
-          "pageFetchState": "SUCCESSFUL",
-          "googleCanonical": "https://acmehealth.com/blog/protein-guide",
-          "userCanonical": "https://acmehealth.com/blog/protein-guide"
+          "lastCrawlTime": "2026-05-03T08:12:00Z"
         },
-        "mobileUsabilityResult": {
-          "verdict": "PASS"
-        },
-        "richResultsResult": {
-          "verdict": "PASS",
-          "detectedItems": []
-        }
+        "mobileUsabilityResult": { "verdict": "PASS" },
+        "richResultsResult": { "verdict": "PASS", "detectedItems": [] }
       }
     },
     "https://acmehealth.com/blog/collagen-facts": {
       "inspectionResult": {
-        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain%3Aacmehealth.com&id=mock-collagen-facts",
         "indexStatusResult": {
           "verdict": "NEEDS_IMPROVEMENT",
           "coverageState": "Crawled - currently not indexed",
-          "robotsTxtState": "ALLOWED",
           "indexingState": "INDEXING_ALLOWED",
-          "lastCrawlTime": "2026-04-22T14:30:00Z",
-          "pageFetchState": "SUCCESSFUL",
-          "googleCanonical": "https://acmehealth.com/blog/collagen-facts",
-          "userCanonical": "https://acmehealth.com/blog/collagen-facts"
+          "lastCrawlTime": "2026-05-01T14:30:00Z"
         },
-        "mobileUsabilityResult": {
-          "verdict": "PASS"
-        },
-        "richResultsResult": {
-          "verdict": "PASS",
-          "detectedItems": []
-        }
+        "mobileUsabilityResult": { "verdict": "PASS" },
+        "richResultsResult": { "verdict": "PASS", "detectedItems": [] }
       }
     },
     "https://acmehealth.com/guides/omega-3": {
       "inspectionResult": {
-        "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain%3Aacmehealth.com&id=mock-omega-3",
         "indexStatusResult": {
           "verdict": "PASS",
           "coverageState": "Submitted and indexed",
-          "robotsTxtState": "ALLOWED",
           "indexingState": "INDEXING_ALLOWED",
-          "lastCrawlTime": "2026-04-24T11:05:00Z",
-          "pageFetchState": "SUCCESSFUL",
-          "googleCanonical": "https://acmehealth.com/guides/omega-3",
-          "userCanonical": "https://acmehealth.com/guides/omega-3"
+          "lastCrawlTime": "2026-05-04T11:05:00Z"
         },
-        "mobileUsabilityResult": {
-          "verdict": "PASS"
-        },
-        "richResultsResult": {
-          "verdict": "PASS",
-          "detectedItems": [
-            {
-              "richResultType": "FAQ",
-              "items": [{ "name": "FAQ" }]
-            }
-          ]
-        }
+        "mobileUsabilityResult": { "verdict": "PASS" },
+        "richResultsResult": { "verdict": "PASS", "detectedItems": [] }
       }
     }
   }

@@ -1,71 +1,46 @@
 {
-  "startDate": "2026-04-01",
-  "endDate": "2026-04-28",
-  "dateRangeLabel": "Last 28 days",
+  "startDate": "2026-04-29",
+  "endDate": "2026-05-05",
+  "dateRangeLabel": "Last week data",
   "siteUrl": "sc-domain:northstarfinance.com",
   "responses": {
     "byProperty": {
       "rows": [
         {
-          "clicks": 9860,
-          "impressions": 295100,
-          "ctr": 0.0334,
-          "position": 16.2
+          "clicks": 2410,
+          "impressions": 70200,
+          "ctr": 0.0343,
+          "position": 15.8
         }
       ],
       "responseAggregationType": "byProperty"
     },
     "byQuery": {
       "rows": [
-        {
-          "keys": ["home loan pre approval"],
-          "clicks": 990,
-          "impressions": 28100,
-          "ctr": 0.0352,
-          "position": 8.5
-        },
-        {
-          "keys": ["fixed vs floating interest"],
-          "clicks": 760,
-          "impressions": 14600,
-          "ctr": 0.0521,
-          "position": 6.9
-        },
-        {
-          "keys": ["credit score improve fast"],
-          "clicks": 630,
-          "impressions": 18100,
-          "ctr": 0.0348,
-          "position": 11.6
-        }
+        { "keys": ["home loan pre approval"], "clicks": 340, "impressions": 9800, "ctr": 0.0347, "position": 8.1 },
+        { "keys": ["fixed vs floating interest"], "clicks": 280, "impressions": 5200, "ctr": 0.0538, "position": 6.5 },
+        { "keys": ["credit score improve fast"], "clicks": 210, "impressions": 6400, "ctr": 0.0328, "position": 10.9 }
       ],
       "responseAggregationType": "auto"
     },
     "byPage": {
       "rows": [
-        {
-          "keys": ["/loans/pre-approval"],
-          "clicks": 1320,
-          "impressions": 31200,
-          "ctr": 0.0423,
-          "position": 7.8
-        },
-        {
-          "keys": ["/blog/fixed-vs-floating"],
-          "clicks": 910,
-          "impressions": 15200,
-          "ctr": 0.0599,
-          "position": 6.4
-        },
-        {
-          "keys": ["/guides/credit-score"],
-          "clicks": 780,
-          "impressions": 19600,
-          "ctr": 0.0398,
-          "position": 10.9
-        }
+        { "keys": ["/loans/pre-approval"], "clicks": 470, "impressions": 11200, "ctr": 0.0420, "position": 7.3 },
+        { "keys": ["/blog/fixed-vs-floating"], "clicks": 310, "impressions": 5300, "ctr": 0.0585, "position": 6.0 },
+        { "keys": ["/guides/credit-score"], "clicks": 260, "impressions": 6900, "ctr": 0.0377, "position": 10.4 }
       ],
       "responseAggregationType": "auto"
     }
+  },
+  "periodSnapshots": {
+    "currentWeek": { "label": "Current week data", "startDate": "2026-05-06", "endDate": "2026-05-12", "totals": { "clicks": 2470, "impressions": 71500, "ctr": 0.0345, "position": 15.5 } },
+    "lastWeek": { "label": "Last week data", "startDate": "2026-04-29", "endDate": "2026-05-05", "totals": { "clicks": 2410, "impressions": 70200, "ctr": 0.0343, "position": 15.8 } },
+    "bestWeek": { "label": "Best week data", "startDate": "2026-03-25", "endDate": "2026-03-31", "totals": { "clicks": 2790, "impressions": 73600, "ctr": 0.0379, "position": 14.7 } },
+    "currentMonth": { "label": "Current month data", "startDate": "2026-05-01", "endDate": "2026-05-31", "totals": { "clicks": 10480, "impressions": 309100, "ctr": 0.0339, "position": 15.8 } },
+    "lastMonth": { "label": "Last month data", "startDate": "2026-04-01", "endDate": "2026-04-30", "totals": { "clicks": 10120, "impressions": 304400, "ctr": 0.0332, "position": 16.0 } },
+    "bestMonth": { "label": "Best month data", "startDate": "2026-02-01", "endDate": "2026-02-28", "totals": { "clicks": 11260, "impressions": 316900, "ctr": 0.0355, "position": 15.1 } },
+    "currentQuarter": { "label": "Current quarter data", "startDate": "2026-04-01", "endDate": "2026-06-30", "totals": { "clicks": 30520, "impressions": 897200, "ctr": 0.0340, "position": 15.9 } },
+    "lastQuarter": { "label": "Last quarter data", "startDate": "2026-01-01", "endDate": "2026-03-31", "totals": { "clicks": 29480, "impressions": 886100, "ctr": 0.0333, "position": 16.5 } },
+    "bestQuarter": { "label": "Best quarter data", "startDate": "2025-10-01", "endDate": "2025-12-31", "totals": { "clicks": 32240, "impressions": 924300, "ctr": 0.0349, "position": 15.6 } }
   }
 }

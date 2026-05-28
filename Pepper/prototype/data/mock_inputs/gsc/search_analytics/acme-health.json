@@ -1,71 +1,46 @@
 {
-  "startDate": "2026-04-01",
-  "endDate": "2026-04-28",
-  "dateRangeLabel": "Last 28 days",
+  "startDate": "2026-04-29",
+  "endDate": "2026-05-05",
+  "dateRangeLabel": "Last week data",
   "siteUrl": "sc-domain:acmehealth.com",
   "responses": {
     "byProperty": {
       "rows": [
         {
-          "clicks": 12480,
-          "impressions": 318400,
-          "ctr": 0.0392,
-          "position": 13.4
+          "clicks": 2980,
+          "impressions": 74200,
+          "ctr": 0.0402,
+          "position": 12.9
         }
       ],
       "responseAggregationType": "byProperty"
     },
     "byQuery": {
       "rows": [
-        {
-          "keys": ["best protein for women"],
-          "clicks": 1250,
-          "impressions": 16400,
-          "ctr": 0.0762,
-          "position": 6.2
-        },
-        {
-          "keys": ["vegan collagen myths"],
-          "clicks": 880,
-          "impressions": 12650,
-          "ctr": 0.0695,
-          "position": 7.9
-        },
-        {
-          "keys": ["omega 3 benefits"],
-          "clicks": 740,
-          "impressions": 19800,
-          "ctr": 0.0374,
-          "position": 10.1
-        }
+        { "keys": ["best protein for women"], "clicks": 420, "impressions": 5400, "ctr": 0.0778, "position": 5.9 },
+        { "keys": ["vegan collagen myths"], "clicks": 330, "impressions": 4700, "ctr": 0.0702, "position": 7.4 },
+        { "keys": ["omega 3 benefits"], "clicks": 260, "impressions": 6500, "ctr": 0.0400, "position": 9.9 }
       ],
       "responseAggregationType": "auto"
     },
     "byPage": {
       "rows": [
-        {
-          "keys": ["/blog/protein-guide"],
-          "clicks": 1750,
-          "impressions": 25100,
-          "ctr": 0.0697,
-          "position": 5.8
-        },
-        {
-          "keys": ["/blog/collagen-facts"],
-          "clicks": 1040,
-          "impressions": 13800,
-          "ctr": 0.0754,
-          "position": 7.1
-        },
-        {
-          "keys": ["/guides/omega-3"],
-          "clicks": 820,
-          "impressions": 19200,
-          "ctr": 0.0427,
-          "position": 9.8
-        }
+        { "keys": ["/blog/protein-guide"], "clicks": 520, "impressions": 6900, "ctr": 0.0754, "position": 5.6 },
+        { "keys": ["/blog/collagen-facts"], "clicks": 360, "impressions": 5100, "ctr": 0.0706, "position": 7.0 },
+        { "keys": ["/guides/omega-3"], "clicks": 300, "impressions": 7100, "ctr": 0.0423, "position": 9.5 }
       ],
       "responseAggregationType": "auto"
     }
+  },
+  "periodSnapshots": {
+    "currentWeek": { "label": "Current week data", "startDate": "2026-05-06", "endDate": "2026-05-12", "totals": { "clicks": 3040, "impressions": 75600, "ctr": 0.0402, "position": 12.7 } },
+    "lastWeek": { "label": "Last week data", "startDate": "2026-04-29", "endDate": "2026-05-05", "totals": { "clicks": 2980, "impressions": 74200, "ctr": 0.0402, "position": 12.9 } },
+    "bestWeek": { "label": "Best week data", "startDate": "2026-03-25", "endDate": "2026-03-31", "totals": { "clicks": 3460, "impressions": 78100, "ctr": 0.0443, "position": 11.8 } },
+    "currentMonth": { "label": "Current month data", "startDate": "2026-05-01", "endDate": "2026-05-31", "totals": { "clicks": 13280, "impressions": 332200, "ctr": 0.0400, "position": 12.9 } },
+    "lastMonth": { "label": "Last month data", "startDate": "2026-04-01", "endDate": "2026-04-30", "totals": { "clicks": 12860, "impressions": 327900, "ctr": 0.0392, "position": 13.2 } },
+    "bestMonth": { "label": "Best month data", "startDate": "2026-02-01", "endDate": "2026-02-28", "totals": { "clicks": 13940, "impressions": 336800, "ctr": 0.0414, "position": 12.1 } },
+    "currentQuarter": { "label": "Current quarter data", "startDate": "2026-04-01", "endDate": "2026-06-30", "totals": { "clicks": 38840, "impressions": 963500, "ctr": 0.0403, "position": 13.0 } },
+    "lastQuarter": { "label": "Last quarter data", "startDate": "2026-01-01", "endDate": "2026-03-31", "totals": { "clicks": 37120, "impressions": 942600, "ctr": 0.0394, "position": 13.5 } },
+    "bestQuarter": { "label": "Best quarter data", "startDate": "2025-10-01", "endDate": "2025-12-31", "totals": { "clicks": 40250, "impressions": 978200, "ctr": 0.0411, "position": 12.7 } }
   }
 }

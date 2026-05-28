@@ -1,0 +1,21 @@
+# Render Blueprint: https://render.com/docs/blueprint-spec
+# Deploy from repo root that contains this file (the `prototype/` folder as service root).
+services:
+  - type: web
+    name: pepper-atlas-prototype
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python engine/api_server.py
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: OPENROUTER_HTTP_REFERER
+        fromService:
+          type: web
+          name: pepper-atlas-prototype
+          property: host
+      - key: OPENROUTER_APP_TITLE
+        value: Pepper Atlas Prototype

@@ -1,6 +1,10 @@
 .venv/
 .env
+.env.local
 __pycache__/
 *.pyc
+.pytest_cache/
+.mypy_cache/
 outputs/charts/
 .DS_Store
+.mplconfig/

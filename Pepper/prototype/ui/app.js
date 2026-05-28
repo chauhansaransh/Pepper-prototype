@@ -14,9 +14,17 @@ const reportPreview = document.getElementById("report-preview");
 const editPanel = document.getElementById("edit-panel");
 const reportEditor = document.getElementById("report-editor");
 const generateBtn = document.getElementById("generate-btn");
+const feedbackPanel = document.getElementById("feedback-panel");
+const toggleFeedbackBtn = document.getElementById("toggle-feedback");
+const feedbackUpBtn = document.getElementById("feedback-up");
+const feedbackDownBtn = document.getElementById("feedback-down");
+const feedbackText = document.getElementById("feedback-text");
+const submitFeedbackBtn = document.getElementById("submit-feedback");
+const feedbackMessage = document.getElementById("feedback-message");
 
 let wizardState = loadWizardState();
 let reportResult = null;
+let selectedFeedback = null;
 
 const REPORT_TYPE_DESCRIPTIONS = {
   weekly:
@@ -41,6 +49,7 @@ function saveWizardState() {
 
 function goToStep(step) {
   Object.entries(stepPanels).forEach(([n, panel]) => {
+    if (!panel) return;
     panel.classList.toggle("active", Number(n) === step);
   });
   stepPills.forEach((pill) => {
@@ -52,6 +61,7 @@ function goToStep(step) {
 }
 
 function showError(el, message) {
+  if (!el) return;
   if (!message) {
     el.hidden = true;
     el.textContent = "";
@@ -159,21 +169,7 @@ configForm.addEventListener("submit", async (e) => {
   }
 });
 
-function providerLabel(provider) {
-  if (provider === "gemini") return "Narrative powered by Gemini.";
-  if (provider === "openrouter") return "Narrative powered by OpenRouter (fallback).";
-  return "Deterministic narrative (no LLM).";
-}
-
 function renderReportStep() {
-  const meta = document.getElementById("step2-meta");
-  const typeLabel = reportResult.reportTypeLabel || reportResult.reportType;
-  const sources = (reportResult.sourcesUsed || []).join(", ");
-  const llmNote = reportResult.usedLlm
-    ? providerLabel(reportResult.llmProvider)
-    : `Fallback narrative${reportResult.llmError ? ` (${reportResult.llmError})` : ""}.`;
-  meta.textContent = `${typeLabel}${sources ? ` · Sources: ${sources}` : ""}. ${llmNote} Review below, edit if needed, then download PDF.`;
-
   reportPreview.innerHTML = "";
   const iframe = document.createElement("iframe");
   iframe.className = "report-iframe";
@@ -183,6 +179,30 @@ function renderReportStep() {
 
   reportEditor.value = reportResult.reportMarkdown;
   editPanel.hidden = true;
+  resetFeedbackUi();
+}
+
+function resetFeedbackUi() {
+  selectedFeedback = null;
+  feedbackUpBtn.classList.remove("active");
+  feedbackUpBtn.setAttribute("aria-pressed", "false");
+  feedbackDownBtn.classList.remove("active");
+  feedbackDownBtn.setAttribute("aria-pressed", "false");
+  feedbackText.value = "";
+  feedbackMessage.hidden = true;
+  feedbackMessage.textContent = "";
+  feedbackPanel.hidden = true;
+  toggleFeedbackBtn.textContent = "Share feedback";
+}
+
+function setFeedbackSelection(value) {
+  selectedFeedback = value;
+  const upActive = value === "up";
+  const downActive = value === "down";
+  feedbackUpBtn.classList.toggle("active", upActive);
+  feedbackUpBtn.setAttribute("aria-pressed", String(upActive));
+  feedbackDownBtn.classList.toggle("active", downActive);
+  feedbackDownBtn.setAttribute("aria-pressed", String(downActive));
 }
 
 document.getElementById("toggle-edit").addEventListener("click", () => {
@@ -209,6 +229,49 @@ document.getElementById("save-preview").addEventListener("click", () => {
 
   const iframe = reportPreview.querySelector("iframe");
   if (iframe) iframe.srcdoc = reportResult.reportHtml;
+});
+
+toggleFeedbackBtn.addEventListener("click", () => {
+  const opening = feedbackPanel.hidden;
+  feedbackPanel.hidden = !opening;
+  toggleFeedbackBtn.textContent = opening ? "Hide feedback" : "Share feedback";
+  if (opening) {
+    feedbackText.focus();
+  }
+});
+
+feedbackUpBtn.addEventListener("click", () => {
+  setFeedbackSelection("up");
+});
+
+feedbackDownBtn.addEventListener("click", () => {
+  setFeedbackSelection("down");
+});
+
+submitFeedbackBtn.addEventListener("click", () => {
+  if (!selectedFeedback) {
+    feedbackMessage.hidden = false;
+    feedbackMessage.textContent = "Please choose thumbs up or thumbs down before submitting.";
+    feedbackMessage.classList.remove("success");
+    return;
+  }
+
+  const payload = {
+    sentiment: selectedFeedback,
+    text: feedbackText.value.trim(),
+    reportType: reportResult?.reportType,
+    customerName: reportResult?.customerName,
+  };
+  console.info("Feedback captured (not persisted):", payload);
+
+  feedbackMessage.hidden = false;
+  feedbackMessage.textContent = "Thanks for the feedback. It is shared for this session only.";
+  feedbackMessage.classList.add("success");
+  submitFeedbackBtn.disabled = true;
+  setTimeout(() => {
+    submitFeedbackBtn.disabled = false;
+    resetFeedbackUi();
+  }, 1400);
 });
 
 document.getElementById("download-pdf").addEventListener("click", async () => {
@@ -249,6 +312,7 @@ document.getElementById("start-over").addEventListener("click", () => {
   wizardState = {};
   reportResult = null;
   configForm.reset();
+  resetFeedbackUi();
   goToStep(1);
 });
 

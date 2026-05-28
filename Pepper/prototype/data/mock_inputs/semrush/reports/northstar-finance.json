@@ -1,10 +1,10 @@
 {
   "customerDomain": "northstarfinance.com",
   "database": "us",
-  "dateRangeLabel": "Last 28 days",
+  "dateRangeLabel": "Last week data",
   "competitors": [
-    { "domain": "nerdwallet.com", "label": "NerdWallet" },
-    { "domain": "bankrate.com", "label": "Bankrate" }
+    { "domain": "bankrate.com", "label": "Bankrate" },
+    { "domain": "nerdwallet.com", "label": "NerdWallet" }
   ],
   "reports": {
     "domain_organic": {
@@ -14,62 +14,9 @@
         "domain": "northstarfinance.com",
         "columns": ["Ph", "Po", "Nq", "Tr", "Cp", "Ur"],
         "rows": [
-          {
-            "Ph": "home loan pre approval",
-            "Po": "9",
-            "Nq": "49500",
-            "Tr": "3.8",
-            "Cp": "4.20",
-            "Ur": "https://northstarfinance.com/loans/pre-approval"
-          },
-          {
-            "Ph": "fixed vs floating interest",
-            "Po": "7",
-            "Nq": "8100",
-            "Tr": "2.4",
-            "Cp": "3.10",
-            "Ur": "https://northstarfinance.com/blog/fixed-vs-floating"
-          },
-          {
-            "Ph": "credit score improve fast",
-            "Po": "12",
-            "Nq": "27100",
-            "Tr": "1.9",
-            "Cp": "2.85",
-            "Ur": "https://northstarfinance.com/guides/credit-score"
-          }
-        ]
-      },
-      "nerdwallet.com": {
-        "type": "domain_organic",
-        "database": "us",
-        "domain": "nerdwallet.com",
-        "columns": ["Ph", "Po", "Nq", "Tr", "Cp", "Ur"],
-        "rows": [
-          {
-            "Ph": "home loan pre approval",
-            "Po": "2",
-            "Nq": "49500",
-            "Tr": "24.6",
-            "Cp": "5.10",
-            "Ur": "https://www.nerdwallet.com/mortgages/preapproval"
-          },
-          {
-            "Ph": "credit score improve fast",
-            "Po": "4",
-            "Nq": "27100",
-            "Tr": "16.2",
-            "Cp": "4.40",
-            "Ur": "https://www.nerdwallet.com/finance/learn/how-to-improve-credit-score"
-          },
-          {
-            "Ph": "mortgage rates today",
-            "Po": "1",
-            "Nq": "201000",
-            "Tr": "38.0",
-            "Cp": "6.20",
-            "Ur": "https://www.nerdwallet.com/mortgages/mortgage-rates"
-          }
+          { "Ph": "home loan pre approval", "Po": "9", "Nq": "22200", "Tr": "3.8", "Cp": "6.20", "Ur": "https://northstarfinance.com/loans/pre-approval" },
+          { "Ph": "fixed vs floating interest", "Po": "7", "Nq": "14800", "Tr": "4.2", "Cp": "4.90", "Ur": "https://northstarfinance.com/blog/fixed-vs-floating" },
+          { "Ph": "credit score improve fast", "Po": "11", "Nq": "9900", "Tr": "2.1", "Cp": "3.40", "Ur": "https://northstarfinance.com/guides/credit-score" }
         ]
       },
       "bankrate.com": {
@@ -78,30 +25,16 @@
         "domain": "bankrate.com",
         "columns": ["Ph", "Po", "Nq", "Tr", "Cp", "Ur"],
         "rows": [
-          {
-            "Ph": "fixed vs floating interest",
-            "Po": "3",
-            "Nq": "8100",
-            "Tr": "11.8",
-            "Cp": "3.90",
-            "Ur": "https://www.bankrate.com/mortgages/fixed-vs-adjustable-rate/"
-          },
-          {
-            "Ph": "home loan pre approval",
-            "Po": "5",
-            "Nq": "49500",
-            "Tr": "14.1",
-            "Cp": "4.95",
-            "Ur": "https://www.bankrate.com/mortgages/preapproval/"
-          },
-          {
-            "Ph": "credit score improve fast",
-            "Po": "8",
-            "Nq": "27100",
-            "Tr": "9.4",
-            "Cp": "3.75",
-            "Ur": "https://www.bankrate.com/personal-finance/credit/how-to-improve-credit-score/"
-          }
+          { "Ph": "home loan pre approval", "Po": "2", "Nq": "22200", "Tr": "26.8", "Cp": "7.10", "Ur": "https://www.bankrate.com/mortgages/preapproval/" }
+        ]
+      },
+      "nerdwallet.com": {
+        "type": "domain_organic",
+        "database": "us",
+        "domain": "nerdwallet.com",
+        "columns": ["Ph", "Po", "Nq", "Tr", "Cp", "Ur"],
+        "rows": [
+          { "Ph": "fixed vs floating interest", "Po": "3", "Nq": "14800", "Tr": "17.4", "Cp": "5.50", "Ur": "https://www.nerdwallet.com/article/mortgages/fixed-vs-adjustable" }
         ]
       }
     },
@@ -112,44 +45,20 @@
         "domain": "northstarfinance.com",
         "columns": ["Ur", "Pc", "Tr", "Po"],
         "rows": [
-          {
-            "Ur": "https://northstarfinance.com/loans/pre-approval",
-            "Pc": "118",
-            "Tr": "6.2",
-            "Po": "1"
-          },
-          {
-            "Ur": "https://northstarfinance.com/blog/fixed-vs-floating",
-            "Pc": "84",
-            "Tr": "3.8",
-            "Po": "2"
-          },
-          {
-            "Ur": "https://northstarfinance.com/guides/credit-score",
-            "Pc": "71",
-            "Tr": "2.9",
-            "Po": "3"
-          }
+          { "Ur": "https://northstarfinance.com/loans/pre-approval", "Pc": "124", "Tr": "7.9", "Po": "1" },
+          { "Ur": "https://northstarfinance.com/blog/fixed-vs-floating", "Pc": "103", "Tr": "6.2", "Po": "2" },
+          { "Ur": "https://northstarfinance.com/guides/credit-score", "Pc": "84", "Tr": "3.7", "Po": "3" }
         ]
       },
-      "nerdwallet.com": {
+      "bankrate.com": {
         "type": "domain_organic_pages",
         "database": "us",
-        "domain": "nerdwallet.com",
+        "domain": "bankrate.com",
         "columns": ["Ur", "Pc", "Tr", "Po"],
         "rows": [
-          {
-            "Ur": "https://www.nerdwallet.com/mortgages/preapproval",
-            "Pc": "420",
-            "Tr": "28.0",
-            "Po": "1"
-          },
-          {
-            "Ur": "https://www.nerdwallet.com/mortgages/mortgage-rates",
-            "Pc": "890",
-            "Tr": "52.0",
-            "Po": "2"
-          }
+          { "Ur": "https://www.bankrate.com/mortgages/preapproval/", "Pc": "427", "Tr": "31.0", "Po": "1" },
+          { "Ur": "https://www.bankrate.com/mortgages/fixed-vs-adjustable-rate/", "Pc": "356", "Tr": "22.5", "Po": "1" },
+          { "Ur": "https://www.bankrate.com/loans/personal-loans/how-to-improve-credit-score/", "Pc": "288", "Tr": "17.2", "Po": "2" }
         ]
       }
     },
@@ -160,19 +69,8 @@
         "phrase": "home loan pre approval",
         "columns": ["Dn", "Ur", "Po"],
         "rows": [
-          { "Dn": "nerdwallet.com", "Ur": "https://www.nerdwallet.com/mortgages/preapproval", "Po": "1" },
-          { "Dn": "bankrate.com", "Ur": "https://www.bankrate.com/mortgages/preapproval/", "Po": "2" },
+          { "Dn": "bankrate.com", "Ur": "https://www.bankrate.com/mortgages/preapproval/", "Po": "1" },
           { "Dn": "northstarfinance.com", "Ur": "https://northstarfinance.com/loans/pre-approval", "Po": "9" }
-        ]
-      },
-      "fixed vs floating interest": {
-        "type": "phrase_organic",
-        "database": "us",
-        "phrase": "fixed vs floating interest",
-        "columns": ["Dn", "Ur", "Po"],
-        "rows": [
-          { "Dn": "bankrate.com", "Ur": "https://www.bankrate.com/mortgages/fixed-vs-adjustable-rate/", "Po": "1" },
-          { "Dn": "northstarfinance.com", "Ur": "https://northstarfinance.com/blog/fixed-vs-floating", "Po": "7" }
         ]
       }
     },
@@ -182,21 +80,7 @@
         "database": "us",
         "phrase": "home loan pre approval",
         "columns": ["Ph", "Kd"],
-        "rows": [{ "Ph": "home loan pre approval", "Kd": "78" }]
-      },
-      "fixed vs floating interest": {
-        "type": "phrase_kdi",
-        "database": "us",
-        "phrase": "fixed vs floating interest",
-        "columns": ["Ph", "Kd"],
-        "rows": [{ "Ph": "fixed vs floating interest", "Kd": "54" }]
-      },
-      "credit score improve fast": {
-        "type": "phrase_kdi",
-        "database": "us",
-        "phrase": "credit score improve fast",
-        "columns": ["Ph", "Kd"],
-        "rows": [{ "Ph": "credit score improve fast", "Kd": "69" }]
+        "rows": [{ "Ph": "home loan pre approval", "Kd": "79" }]
       }
     },
     "backlinks_overview": {
@@ -204,46 +88,19 @@
         "type": "backlinks_overview",
         "domain": "northstarfinance.com",
         "columns": ["ascore", "total", "domains_num", "urls_num", "follows_num", "nofollows_num"],
-        "rows": [
-          {
-            "ascore": "38",
-            "total": "8420",
-            "domains_num": "620",
-            "urls_num": "7100",
-            "follows_num": "6800",
-            "nofollows_num": "1620"
-          }
-        ]
-      },
-      "nerdwallet.com": {
-        "type": "backlinks_overview",
-        "domain": "nerdwallet.com",
-        "columns": ["ascore", "total", "domains_num", "urls_num", "follows_num", "nofollows_num"],
-        "rows": [
-          {
-            "ascore": "88",
-            "total": "14200000",
-            "domains_num": "76200",
-            "urls_num": "6800000",
-            "follows_num": "12100000",
-            "nofollows_num": "2100000"
-          }
-        ]
+        "rows": [{ "ascore": "41", "total": "9040", "domains_num": "610", "urls_num": "7560", "follows_num": "6840", "nofollows_num": "2200" }]
       },
       "bankrate.com": {
         "type": "backlinks_overview",
         "domain": "bankrate.com",
         "columns": ["ascore", "total", "domains_num", "urls_num", "follows_num", "nofollows_num"],
-        "rows": [
-          {
-            "ascore": "85",
-            "total": "11800000",
-            "domains_num": "69100",
-            "urls_num": "5400000",
-            "follows_num": "10200000",
-            "nofollows_num": "1600000"
-          }
-        ]
+        "rows": [{ "ascore": "89", "total": "17230000", "domains_num": "112300", "urls_num": "8600000", "follows_num": "14900000", "nofollows_num": "2330000" }]
+      },
+      "nerdwallet.com": {
+        "type": "backlinks_overview",
+        "domain": "nerdwallet.com",
+        "columns": ["ascore", "total", "domains_num", "urls_num", "follows_num", "nofollows_num"],
+        "rows": [{ "ascore": "88", "total": "13650000", "domains_num": "82300", "urls_num": "7000000", "follows_num": "11900000", "nofollows_num": "1750000" }]
       }
     },
     "position_tracking": {
@@ -254,31 +111,53 @@
       "targetDomain": "northstarfinance.com",
       "columns": ["keyword", "position", "previousPosition", "visibility", "competitorBestDomain", "competitorBestPosition"],
       "rows": [
-        {
-          "keyword": "home loan pre approval",
-          "position": 9,
-          "previousPosition": 12,
-          "visibility": 10.2,
-          "competitorBestDomain": "nerdwallet.com",
-          "competitorBestPosition": 2
-        },
-        {
-          "keyword": "fixed vs floating interest",
-          "position": 7,
-          "previousPosition": 9,
-          "visibility": 11.8,
-          "competitorBestDomain": "bankrate.com",
-          "competitorBestPosition": 3
-        },
-        {
-          "keyword": "credit score improve fast",
-          "position": 12,
-          "previousPosition": 15,
-          "visibility": 7.4,
-          "competitorBestDomain": "nerdwallet.com",
-          "competitorBestPosition": 4
-        }
+        { "keyword": "home loan pre approval", "position": 9, "previousPosition": 10, "visibility": 11.4, "competitorBestDomain": "bankrate.com", "competitorBestPosition": 2 },
+        { "keyword": "fixed vs floating interest", "position": 7, "previousPosition": 8, "visibility": 13.2, "competitorBestDomain": "nerdwallet.com", "competitorBestPosition": 3 },
+        { "keyword": "credit score improve fast", "position": 11, "previousPosition": 13, "visibility": 8.9, "competitorBestDomain": "experian.com", "competitorBestPosition": 4 }
       ]
     }
+  },
+  "keywordCompetitiveMatrix": {
+    "customerLabel": "Northstar",
+    "rows": [
+      {
+        "keyword": "home loan pre approval",
+        "volume": 22200,
+        "customerPosition": 9,
+        "competitorPosition": 2,
+        "winner": "Bankrate",
+        "winnerDomain": "bankrate.com",
+        "opportunity": "High"
+      },
+      {
+        "keyword": "fixed vs floating interest",
+        "volume": 14800,
+        "customerPosition": 7,
+        "competitorPosition": 3,
+        "winner": "NerdWallet",
+        "winnerDomain": "nerdwallet.com",
+        "opportunity": "Medium"
+      },
+      {
+        "keyword": "credit score improve fast",
+        "volume": 9900,
+        "customerPosition": 11,
+        "competitorPosition": 4,
+        "winner": "Experian",
+        "winnerDomain": "experian.com",
+        "opportunity": "Medium"
+      }
+    ]
+  },
+  "periodSnapshots": {
+    "currentWeek": { "label": "Current week data", "authorityScore": 41, "referringDomains": 614, "trackedKeywordsTop20": 109 },
+    "lastWeek": { "label": "Last week data", "authorityScore": 41, "referringDomains": 610, "trackedKeywordsTop20": 106 },
+    "bestWeek": { "label": "Best week data", "authorityScore": 42, "referringDomains": 621, "trackedKeywordsTop20": 114 },
+    "currentMonth": { "label": "Current month data", "authorityScore": 42, "referringDomains": 632, "trackedKeywordsTop20": 116 },
+    "lastMonth": { "label": "Last month data", "authorityScore": 41, "referringDomains": 610, "trackedKeywordsTop20": 110 },
+    "bestMonth": { "label": "Best month data", "authorityScore": 43, "referringDomains": 648, "trackedKeywordsTop20": 122 },
+    "currentQuarter": { "label": "Current quarter data", "authorityScore": 42, "referringDomains": 641, "trackedKeywordsTop20": 119 },
+    "lastQuarter": { "label": "Last quarter data", "authorityScore": 40, "referringDomains": 588, "trackedKeywordsTop20": 101 },
+    "bestQuarter": { "label": "Best quarter data", "authorityScore": 44, "referringDomains": 672, "trackedKeywordsTop20": 127 }
   }
 }

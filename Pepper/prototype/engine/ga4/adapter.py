@@ -103,4 +103,6 @@ def normalize_ga4_payload(payload: Dict[str, Any]) -> Dict[str, Any]:
         },
         "organicChannel": payload.get("organicChannel", {}),
         "topLandingPages": (payload.get("topLandingPages") or [])[:3],
+        "lastWeekSegments": payload.get("lastWeekSegments", {}),
+        "periodSnapshots": payload.get("periodSnapshots", {}),
     }

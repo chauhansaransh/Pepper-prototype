@@ -26,7 +26,7 @@
       </div>
       <div class="header-intro">
         <h1>AI-generated performance report</h1>
-        <p>Combine SEO, GEO, engagement, and competitor insights.</p>
+        <p>Combine SEO, GEO, engagement, and competitor insights</p>
       </div>
       <nav class="stepper" aria-label="Progress">
         <span class="step-pill active" data-step="1">1. Configure</span>
@@ -88,11 +88,6 @@
 
       <!-- Step 2: Report -->
       <section id="step-2" class="step-panel">
-        <div class="step-header">
-          <h2>Your report is ready</h2>
-          <p id="step2-meta" class="subtitle"></p>
-        </div>
-
         <div id="report-preview" class="report-preview-shell"></div>
 
         <div id="edit-panel" class="edit-panel" hidden>
@@ -106,12 +101,37 @@
         <div class="step-actions">
           <button type="button" id="start-over" class="btn btn-secondary">Start over</button>
           <button type="button" id="toggle-edit" class="btn btn-secondary">Edit report</button>
+          <button type="button" id="toggle-feedback" class="btn btn-secondary">Share feedback</button>
           <button type="button" id="download-pdf" class="btn btn-primary">Download PDF</button>
         </div>
+
+        <section id="feedback-panel" class="feedback-panel" hidden>
+          <h3>How was this report?</h3>
+          <div class="thumb-actions" role="group" aria-label="Choose feedback sentiment">
+            <button type="button" id="feedback-up" class="thumb-btn" aria-pressed="false">
+              👍 Thumbs up
+            </button>
+            <button type="button" id="feedback-down" class="thumb-btn" aria-pressed="false">
+              👎 Thumbs down
+            </button>
+          </div>
+          <label for="feedback-text">Anything else to share? (optional)</label>
+          <textarea
+            id="feedback-text"
+            rows="3"
+            placeholder="Share what worked well or what should improve."
+          ></textarea>
+          <div class="feedback-actions">
+            <button type="button" id="submit-feedback" class="btn btn-secondary">
+              Submit feedback
+            </button>
+            <p id="feedback-message" class="feedback-message" hidden></p>
+          </div>
+        </section>
         <p id="step2-error" class="error-text" hidden></p>
       </section>
     </main>
 
-    <script src="./app.js"></script>
+    <script src="./app.js?v=2"></script>
   </body>
 </html>

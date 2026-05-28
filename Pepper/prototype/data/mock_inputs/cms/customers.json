@@ -2,6 +2,7 @@
   "customers": [
     {
       "id": "acme-health",
+      "name": "Acme Health",
       "wordpress": {
         "siteUrl": "https://acmehealth.com/wp-json"
       },
@@ -16,6 +17,7 @@
     },
     {
       "id": "northstar-finance",
+      "name": "Northstar Finance",
       "wordpress": {
         "siteUrl": "https://northstarfinance.com/wp-json"
       },

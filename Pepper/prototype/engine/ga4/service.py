@@ -55,9 +55,12 @@ class Ga4MockService:
             report_key="byLandingPage",
             customer_id=customer_id,
         )
-        return build_legacy_customer_payload(
+        payload = build_legacy_customer_payload(
             property_totals,
             by_channel,
             by_landing_page,
             meta["dateRangeLabel"],
         )
+        payload["lastWeekSegments"] = meta.get("lastWeekSegments", {})
+        payload["periodSnapshots"] = meta.get("periodSnapshots", {})
+        return payload

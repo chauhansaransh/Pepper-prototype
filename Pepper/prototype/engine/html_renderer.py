@@ -1,20 +1,90 @@
 import html
+import json
 import re
 from typing import Any, Dict, List, Tuple
+
+
+def _format_inline_markdown(text: str) -> str:
+    escaped = html.escape(text)
+    escaped = re.sub(r"`([^`]+)`", r"<code>\1</code>", escaped)
+    escaped = re.sub(r"\*\*\*([^*]+)\*\*\*", r"<strong><em>\1</em></strong>", escaped)
+    escaped = re.sub(r"\*\*([^*]+)\*\*", r"<strong>\1</strong>", escaped)
+    escaped = re.sub(r"\*([^*]+)\*", r"<em>\1</em>", escaped)
+    return escaped
+
+
+def _format_table_cell(text: str) -> str:
+    raw = text.strip()
+    rendered = _format_inline_markdown(raw)
+    if raw.startswith("↑ "):
+        return f'<span class="trend-up">{rendered}</span>'
+    if raw.startswith("↓ "):
+        return f'<span class="trend-down">{rendered}</span>'
+    if raw.startswith("→ "):
+        return f'<span class="trend-flat">{rendered}</span>'
+    return rendered
 
 
 def markdown_to_html(markdown: str) -> str:
     lines = markdown.splitlines()
     parts: List[str] = []
     in_list = False
-
-    for raw in lines:
+    i = 0
+    while i < len(lines):
+        raw = lines[i]
         line = raw.strip()
         if not line:
             if in_list:
                 parts.append("</ul>")
                 in_list = False
+            i += 1
             continue
+
+        # Markdown table support:
+        # | col | col |
+        # | --- | --- |
+        # | ... | ... |
+        if line.startswith("|") and line.endswith("|") and i + 1 < len(lines):
+            sep_line = lines[i + 1].strip()
+            is_separator = (
+                sep_line.startswith("|")
+                and sep_line.endswith("|")
+                and all(
+                    set(cell.strip()) <= {"-", ":"}
+                    for cell in sep_line.strip("|").split("|")
+                    if cell.strip()
+                )
+            )
+            if is_separator:
+                if in_list:
+                    parts.append("</ul>")
+                    in_list = False
+                header_cells = [
+                    _format_inline_markdown(cell.strip())
+                    for cell in line.strip("|").split("|")
+                ]
+                parts.append('<table class="md-table">')
+                parts.append(
+                    "<thead><tr>"
+                    + "".join(f"<th>{cell}</th>" for cell in header_cells)
+                    + "</tr></thead>"
+                )
+                parts.append("<tbody>")
+                i += 2
+                while i < len(lines):
+                    row_line = lines[i].strip()
+                    if not (row_line.startswith("|") and row_line.endswith("|")):
+                        break
+                    row_cells = [
+                        _format_table_cell(cell.strip())
+                        for cell in row_line.strip("|").split("|")
+                    ]
+                    parts.append(
+                        "<tr>" + "".join(f"<td>{cell}</td>" for cell in row_cells) + "</tr>"
+                    )
+                    i += 1
+                parts.append("</tbody></table>")
+                continue
 
         if line.startswith("### "):
             if in_list:
@@ -35,16 +105,15 @@ def markdown_to_html(markdown: str) -> str:
             if not in_list:
                 parts.append("<ul>")
                 in_list = True
-            text = html.escape(line[2:])
-            text = re.sub(r"`([^`]+)`", r"<code>\1</code>", text)
+            text = _format_inline_markdown(line[2:])
             parts.append(f"<li>{text}</li>")
         else:
             if in_list:
                 parts.append("</ul>")
                 in_list = False
-            text = html.escape(line)
-            text = re.sub(r"`([^`]+)`", r"<code>\1</code>", text)
+            text = _format_inline_markdown(line)
             parts.append(f"<p>{text}</p>")
+        i += 1
 
     if in_list:
         parts.append("</ul>")
@@ -60,20 +129,15 @@ def render_html_report(
     used_llm: bool,
     llm_provider: str = "none",
 ) -> str:
-    chart_html_by_id = {c.get("id", ""): _build_chart_block(c) for c in charts}
+    chart_html_by_id = {
+        c.get("id", ""): _build_chart_block(c) for c in charts
+    }
     narrative_with_charts, unmatched = _inject_charts_into_narrative(
         narrative_html, chart_html_by_id
     )
-    trailing_blocks = "".join(chart_html_by_id[cid] for cid in unmatched if cid in chart_html_by_id)
-
-    if used_llm and llm_provider == "gemini":
-        llm_badge = '<span class="badge badge-llm">Narrative by Gemini</span>'
-    elif used_llm and llm_provider == "openrouter":
-        llm_badge = '<span class="badge badge-llm">Narrative by OpenRouter (fallback)</span>'
-    elif used_llm:
-        llm_badge = '<span class="badge badge-llm">AI-generated narrative</span>'
-    else:
-        llm_badge = '<span class="badge badge-fallback">Deterministic narrative</span>'
+    trailing_blocks = "".join(
+        chart_html_by_id[cid] for cid in unmatched if cid in chart_html_by_id
+    )
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -92,18 +156,14 @@ def render_html_report(
 <body class="report-body">
   <header class="report-hero">
     <div class="report-brand-row">
-      <img src="/assets/peppercontent_logo.jpeg" alt="Pepper Content" class="report-logo" />
-      <div>
-        <div class="report-brand">Pepper Content</div>
-        <h1>{html.escape(report_type)}</h1>
-        <p class="report-meta">{html.escape(customer_name)} · {html.escape(date_range)}</p>
-      </div>
+      <img src="/assets/peppercontent_logo.jpeg" alt="" class="report-logo" />
+      <h1>{html.escape(report_type)}</h1>
+      <p class="report-meta">{html.escape(customer_name)} · {html.escape(date_range)}</p>
     </div>
-    <div class="badge-row">{llm_badge}</div>
   </header>
   <main class="report-content">
     <section class="narrative">{narrative_with_charts}</section>
-    {f'<section class="charts-section"><h2>Additional Visuals</h2><div class="chart-grid">{trailing_blocks}</div></section>' if trailing_blocks else ''}
+    {f'<section class="charts-section"><h2>Additional Visuals</h2><div class="chart-grid chart-grid-overview">{trailing_blocks}</div></section>' if trailing_blocks else ''}
   </main>
   <footer class="report-footer">Generated by Pepper AI Builder · For customer sharing after CSM review</footer>
 </body>
@@ -114,16 +174,23 @@ def render_html_report(
 def _build_chart_block(chart: Dict[str, str]) -> str:
     src = f"/outputs/charts/{chart['filename']}"
     return f"""
-    <div class="chart-grid">
-      <figure class="chart-card">
-        <img src="{html.escape(src)}" alt="{html.escape(chart.get('title', 'Chart'))}" />
-        <figcaption>{html.escape(chart.get('title', ''))}</figcaption>
-      </figure>
-    </div>
+    <figure class="chart-card">
+      <img src="{html.escape(src)}" alt="{html.escape(chart.get('title', 'Chart'))}" />
+      <figcaption>{html.escape(chart.get('title', ''))}</figcaption>
+    </figure>
     """
 
 
 def _chart_section_keywords(chart_id: str) -> List[str]:
+    if chart_id.startswith("gsc_period_comparison_"):
+        return ["gsc period comparison", "gsc", "search console", "kpi snapshot"]
+    if chart_id.startswith("ga4_period_comparison_"):
+        return ["ga4 period comparison", "ga4", "landing pages", "engagement"]
+    if chart_id.startswith("semrush_ai_period_comparison_"):
+        return ["semrush ai period comparison", "ai visibility", "ai"]
+    if chart_id.startswith("semrush_period_comparison_"):
+        return ["semrush period comparison", "semrush", "competitor"]
+
     mapping = {
         "kpi_summary": ["kpi", "executive snapshot", "kpi overview", "summary"],
         "top_queries": ["query", "keyword"],

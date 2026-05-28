@@ -60,7 +60,10 @@ def _format_compact(value: float) -> str:
 
 
 def render_charts(
-    customer_id: str, report_context: Dict[str, Any], output_dir: Path
+    customer_id: str,
+    report_context: Dict[str, Any],
+    output_dir: Path,
+    cadence: str = "weekly",
 ) -> List[Dict[str, str]]:
     output_dir.mkdir(parents=True, exist_ok=True)
     slug = _safe_slug(customer_id)
@@ -74,158 +77,101 @@ def render_charts(
     ga4 = report_context.get("ga4") or {}
     semrush = report_context.get("semrush") or {}
     semrush_ai = report_context.get("semrushAi") or {}
-    wordpress = report_context.get("wordpress") or {}
-    webflow = report_context.get("webflow") or {}
-    contentful = report_context.get("contentful") or {}
-
-    totals = gsc.get("totals", {})
-    if totals:
-        kpi_path = output_dir / f"{slug}_kpi_summary.png"
-        _render_kpi_cards(totals, kpi_path)
-        charts.append(
-            {
-                "id": "kpi_summary",
-                "title": "KPI Summary",
-                "filename": kpi_path.name,
-                "path": str(kpi_path),
-            }
-        )
-
-    queries = gsc.get("topQueries", [])
-    if queries:
-        queries_path = output_dir / f"{slug}_top_queries.png"
-        _render_ranked_bar_chart(
-            items=[
-                (q.get("query", "N/A"), int(q.get("clicks", 0)))
-                for q in queries
-            ],
-            title="Top Queries by Clicks",
-            xlabel="Clicks",
-            output_path=queries_path,
-            label_max_len=36,
-        )
-        charts.append(
-            {
-                "id": "top_queries",
-                "title": "Top Queries by Clicks",
-                "filename": queries_path.name,
-                "path": str(queries_path),
-            }
-        )
-
-    pages = gsc.get("topPages", [])
-    if pages:
-        pages_path = output_dir / f"{slug}_top_pages.png"
-        _render_ranked_bar_chart(
-            items=[
-                (p.get("page", "N/A"), int(p.get("clicks", 0)))
-                for p in pages
-            ],
-            title="Top Pages by Clicks",
-            xlabel="Clicks",
-            output_path=pages_path,
-            label_max_len=42,
-        )
-        charts.append(
-            {
-                "id": "top_pages",
-                "title": "Top Pages by Clicks",
-                "filename": pages_path.name,
-                "path": str(pages_path),
-            }
-        )
-
-    ga4_pages = ga4.get("topLandingPages") or []
-    if ga4_pages:
-        ga4_pages_path = output_dir / f"{slug}_ga4_top_landing_pages.png"
-        _render_ranked_bar_chart(
-            items=[(p.get("pagePath", "N/A"), int(p.get("sessions", 0))) for p in ga4_pages],
-            title="GA4 Top Landing Pages by Sessions",
-            xlabel="Sessions",
-            output_path=ga4_pages_path,
-            label_max_len=42,
-        )
-        charts.append(
-            {
-                "id": "ga4_top_landing_pages",
-                "title": "GA4 Top Landing Pages by Sessions",
-                "filename": ga4_pages_path.name,
-                "path": str(ga4_pages_path),
-            }
-        )
-
-    competitor_summaries = semrush.get("competitorSummaries") or []
-    if competitor_summaries:
-        semrush_comp_path = output_dir / f"{slug}_semrush_competitor_authority.png"
-        _render_ranked_bar_chart(
-            items=[
-                (c.get("label") or c.get("domain", "N/A"), int(c.get("authorityScore", 0)))
-                for c in competitor_summaries
-            ],
-            title="Semrush Competitor Authority Score",
-            xlabel="Authority Score",
-            output_path=semrush_comp_path,
-            label_max_len=36,
-        )
-        charts.append(
-            {
-                "id": "semrush_competitor_authority",
-                "title": "Semrush Competitor Authority Score",
-                "filename": semrush_comp_path.name,
-                "path": str(semrush_comp_path),
-            }
-        )
-
-    llm_rows = (semrush_ai.get("visibilityOverview") or {}).get("byLlm") or []
-    if llm_rows:
-        semrush_ai_path = output_dir / f"{slug}_ai_visibility_by_platform.png"
-        _render_ranked_bar_chart(
-            items=[
-                (
-                    r.get("platform", "N/A"),
-                    int(float(r.get("visibilityShare", r.get("mentions", 0)))),
-                )
-                for r in llm_rows
-            ],
-            title="AI Visibility Share by Platform",
-            xlabel="Visibility Share (%)",
-            output_path=semrush_ai_path,
-            label_max_len=30,
-        )
-        charts.append(
-            {
-                "id": "ai_visibility_by_platform",
-                "title": "AI Visibility Share by Platform",
-                "filename": semrush_ai_path.name,
-                "path": str(semrush_ai_path),
-            }
-        )
-
-    content_counts = [
-        ("WordPress", len(wordpress.get("items") or [])),
-        ("Webflow", len(webflow.get("items") or [])),
-        ("Contentful", len(contentful.get("items") or [])),
+    cadence_key = cadence.strip().lower()
+    comparison_specs = [
+        (
+            "gsc",
+            f"gsc_period_comparison_{cadence_key}",
+            f"GSC {cadence_key.title()} Comparison (Clicks)",
+            gsc.get("periodSnapshots") or {},
+            ("totals", "clicks"),
+            "Clicks",
+        ),
+        (
+            "ga4",
+            f"ga4_period_comparison_{cadence_key}",
+            f"GA4 {cadence_key.title()} Comparison (Sessions)",
+            ga4.get("periodSnapshots") or {},
+            ("totals", "sessions"),
+            "Sessions",
+        ),
+        (
+            "semrush",
+            f"semrush_period_comparison_{cadence_key}",
+            f"Semrush {cadence_key.title()} Comparison (Tracked Keywords)",
+            semrush.get("periodSnapshots") or {},
+            ("trackedKeywordsTop20",),
+            "Tracked Keywords",
+        ),
+        (
+            "semrush_ai",
+            f"semrush_ai_period_comparison_{cadence_key}",
+            f"Semrush AI {cadence_key.title()} Comparison (Estimated Mentions)",
+            semrush_ai.get("periodSnapshots") or {},
+            ("estimatedAiMentions",),
+            "Estimated Mentions",
+        ),
     ]
-    content_counts = [item for item in content_counts if item[1] > 0]
-    if content_counts:
-        cms_path = output_dir / f"{slug}_cms_content_counts.png"
-        _render_ranked_bar_chart(
-            items=content_counts,
-            title="Published Content by CMS Source",
-            xlabel="Items",
-            output_path=cms_path,
-            label_max_len=24,
+
+    for prefix, chart_id, title, snapshots, metric_path, ylabel in comparison_specs:
+        cadence_values = _extract_cadence_comparisons(
+            snapshots, metric_path, cadence_key
         )
+        if not cadence_values:
+            continue
+        chart_path = output_dir / f"{slug}_{prefix}_period_comparison_{cadence_key}.png"
+        _render_period_comparison_chart(cadence_values, title, ylabel, chart_path)
         charts.append(
             {
-                "id": "cms_content_counts",
-                "title": "Published Content by CMS Source",
-                "filename": cms_path.name,
-                "path": str(cms_path),
+                "id": chart_id,
+                "title": title,
+                "filename": chart_path.name,
+                "path": str(chart_path),
             }
         )
 
     return charts
+
+
+def _nested_metric(snapshot: Dict[str, Any], path: Tuple[str, ...]) -> float:
+    value: Any = snapshot
+    for key in path:
+        if not isinstance(value, dict):
+            return 0.0
+        value = value.get(key)
+    try:
+        return float(value or 0.0)
+    except (TypeError, ValueError):
+        return 0.0
+
+
+def _extract_cadence_comparisons(
+    snapshots: Dict[str, Any],
+    metric_path: Tuple[str, ...],
+    cadence: str,
+) -> Dict[str, Dict[str, float]]:
+    cadence_map = {
+        "weekly": ("Week", "currentWeek", "lastWeek", "bestWeek"),
+        "monthly": ("Month", "currentMonth", "lastMonth", "bestMonth"),
+        "quarterly": ("Quarter", "currentQuarter", "lastQuarter", "bestQuarter"),
+    }
+    selected = cadence_map.get(cadence, cadence_map["weekly"])
+    result: Dict[str, Dict[str, float]] = {}
+    label, current_key, last_key, best_key = selected
+    current = _nested_metric(snapshots.get(current_key) or {}, metric_path)
+    last = _nested_metric(snapshots.get(last_key) or {}, metric_path)
+    best = _nested_metric(snapshots.get(best_key) or {}, metric_path)
+    if any(v > 0 for v in (current, last, best)):
+        result[label] = {"Current": current, "Last": last, "Best": best}
+    return result
+
+
+def _pct_change(current: float, reference: float) -> str:
+    if reference == 0:
+        return "n/a"
+    delta = ((current - reference) / reference) * 100.0
+    sign = "+" if delta >= 0 else ""
+    return f"{sign}{delta:.1f}%"
 
 
 def _render_kpi_cards(totals: Dict[str, Any], output_path: Path) -> None:
@@ -287,6 +233,87 @@ def _render_kpi_cards(totals: Dict[str, Any], output_path: Path) -> None:
         )
 
     fig.subplots_adjust(wspace=0.35)
+    _save_fig(fig, output_path)
+
+
+def _render_period_comparison_chart(
+    cadence_values: Dict[str, Dict[str, float]],
+    title: str,
+    ylabel: str,
+    output_path: Path,
+) -> None:
+    cadences = list(cadence_values.keys())
+    current_vals = [cadence_values[c]["Current"] for c in cadences]
+    last_vals = [cadence_values[c]["Last"] for c in cadences]
+    best_vals = [cadence_values[c]["Best"] for c in cadences]
+
+    fig, ax = plt.subplots(figsize=(6.4, 2.9))
+    _apply_theme(ax)
+
+    x = list(range(len(cadences)))
+    width = 0.23
+    bars_current = ax.bar(
+        [i - width for i in x],
+        current_vals,
+        width=width,
+        color=COLORS["primary"],
+        label="Current",
+    )
+    bars_last = ax.bar(
+        x,
+        last_vals,
+        width=width,
+        color=COLORS["secondary"],
+        label="Last",
+    )
+    bars_best = ax.bar(
+        [i + width for i in x],
+        best_vals,
+        width=width,
+        color=COLORS["accent"],
+        label="Best",
+    )
+
+    ax.set_xticks(x)
+    ax.set_xticklabels(cadences)
+    ax.set_ylabel(ylabel)
+    ax.set_title(title, fontsize=10.5, fontweight="bold", pad=8)
+    ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda v, _: _format_compact(v)))
+    ax.legend(frameon=False, loc="upper left", fontsize=8)
+
+    current = current_vals[0] if current_vals else 0.0
+    last = last_vals[0] if last_vals else 0.0
+    best = best_vals[0] if best_vals else 0.0
+    subtitle = (
+        f"% change vs Last: {_pct_change(current, last)} | "
+        f"vs Best: {_pct_change(current, best)}"
+    )
+    ax.text(
+        0.0,
+        1.02,
+        subtitle,
+        transform=ax.transAxes,
+        ha="left",
+        va="bottom",
+        fontsize=7.5,
+        color=COLORS["muted"],
+    )
+
+    all_values = current_vals + last_vals + best_vals
+    max_val = max(all_values) if any(all_values) else 1.0
+    for bars in (bars_current, bars_last, bars_best):
+        for bar in bars:
+            value = bar.get_height()
+            ax.text(
+                bar.get_x() + bar.get_width() / 2,
+                value + max_val * 0.015,
+                _format_compact(value),
+                ha="center",
+                va="bottom",
+                fontsize=7,
+                color=COLORS["text"],
+            )
+
     _save_fig(fig, output_path)
 
 

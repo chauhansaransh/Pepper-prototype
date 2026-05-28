@@ -5,111 +5,45 @@ quarterly_report:
       - "CMO"
       - "VP Marketing"
       - "Leadership"
-    objective: "Business impact, strategic positioning, and executive reporting"
+    objective: "Table-first quarterly business review with concise actions"
 
   sections:
 
-    - id: executive_business_summary
-      title: "Executive Business Summary"
+    - id: executive_snapshot
+      title: "Executive Snapshot"
+      type: "table"
+      data_sources:
+        - gsc.search_analytics
+        - ga4.run_report
+        - semrush.report
+        - semrush_ai.ai_visibility_overview
+
+    - id: source_data_tables
+      title: "Source Data Tables"
+      type: "table_pack"
+      data_sources:
+        - gsc.search_analytics
+        - ga4.run_report
+        - semrush.report
+        - semrush_ai.ai_visibility_overview
+        - semrush_ai.ai_prompt_mentions
+        - semrush_ai.ai_citation_tracking
+
+    - id: cms_and_technical
+      title: "CMS and Technical"
+      type: "table"
+      data_sources:
+        - wordpress.posts
+        - webflow.items
+        - contentful.entries
+        - gsc.url_inspection
+
+    - id: insights
+      title: "Insights"
       type: "llm_summary"
       generated_by: "llm"
 
-    - id: goal_performance
-      title: "Quarterly Goal Performance"
-      type: "goal_tracking_table"
-      data_sources:
-        - gsc.search_analytics
-        - ga4.run_report
-        - semrush_ai.ai_visibility_overview
-      columns:
-        - goal
-        - target
-        - actual
-        - status
-
-    - id: quarterly_kpis
-      title: "Quarterly KPI Overview"
-      type: "kpi_grid"
-      data_sources:
-        - gsc.search_analytics
-        - ga4.run_report
-        - semrush_ai.ai_visibility_overview
-      metrics:
-        - organic_clicks
-        - impressions
-        - organic_sessions
-        - conversions
-        - avg_position
-        - ai_visibility_score
-        - engagement_rate
-
-    - id: strategic_wins
-      title: "Strategic Wins"
-      type: "grouped_summary"
+    - id: recommendations
+      title: "Recommendations"
+      type: "llm_summary"
       generated_by: "llm"
-      outputs:
-        - major_growth_drivers
-        - highest_impact_content
-        - seo_wins
-        - geo_wins
-
-    - id: competitive_positioning
-      title: "Competitive Positioning"
-      type: "competitive_analysis"
-      data_sources:
-        - semrush.report
-        - semrush_ai.ai_visibility_overview
-      outputs:
-        - seo_share_of_voice
-        - ai_visibility_share
-
-    - id: topic_authority
-      title: "Market & Topic Authority"
-      type: "table"
-      data_sources:
-        - semrush_ai.ai_prompt_mentions
-      columns:
-        - topic_cluster
-        - visibility_score
-        - competitive_position
-
-    - id: content_roi
-      title: "Content ROI & Business Impact"
-      type: "table"
-      data_sources:
-        - ga4.run_report
-        - gsc.search_analytics
-      columns:
-        - content_type
-        - traffic_contribution
-        - conversion_contribution
-        - strategic_insight
-
-    - id: geo_trends
-      title: "GEO & AI Search Trends"
-      type: "geo_analysis"
-      data_sources:
-        - semrush_ai.ai_visibility_overview
-        - semrush_ai.ai_citation_tracking
-      outputs:
-        - ai_citation_growth
-        - ai_prompt_coverage
-        - top_ai_cited_assets
-
-    - id: strategic_risks
-      title: "Risks & Strategic Challenges"
-      type: "table"
-      generated_by: "llm"
-      columns:
-        - risk
-        - business_impact
-        - recommendation
-
-    - id: strategic_recommendations
-      title: "Strategic Recommendations"
-      type: "llm_analysis"
-      generated_by: "llm"
-      outputs:
-        - recommended_investments
-        - optimization_opportunities
-        - next_quarter_focus_areas

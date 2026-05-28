@@ -1,81 +1,65 @@
 {
   "customerDomain": "northstarfinance.com",
-  "dateRangeLabel": "Last 28 days",
+  "dateRangeLabel": "Last week data",
   "reports": {
     "ai_visibility_overview": {
-      "type": "ai_visibility_overview",
-      "domain": "northstarfinance.com",
-      "metrics": {
-        "visibilityScore": 28,
-        "mentions": 94,
-        "citations": 61,
-        "citedPages": 31,
-        "monthlyAudience": 352000
-      },
-      "byLlm": [
-        { "platform": "google_ai_overview", "mentions": 40, "citations": 26, "visibilityShare": 42.6 },
-        { "platform": "chatgpt", "mentions": 34, "citations": 22, "visibilityShare": 36.2 },
-        { "platform": "gemini", "mentions": 20, "citations": 13, "visibilityShare": 21.2 }
-      ],
-      "competitorComparison": [
-        { "domain": "nerdwallet.com", "visibilityScore": 68, "mentions": 380, "citations": 265 },
-        { "domain": "bankrate.com", "visibilityScore": 62, "mentions": 340, "citations": 241 },
-        { "domain": "northstarfinance.com", "visibilityScore": 28, "mentions": 94, "citations": 61 }
-      ]
+      "brandPromptShare": 17.9,
+      "competitivePromptShare": 11.7,
+      "estimatedAiMentions": 121,
+      "sentimentMix": { "positive": 57, "neutral": 33, "negative": 10 }
     },
     "ai_prompt_mentions": {
-      "type": "ai_prompt_mentions",
-      "domain": "northstarfinance.com",
-      "rows": [
-        {
-          "prompt": "home loan pre approval",
-          "brandMentioned": true,
-          "platforms": ["google_ai_overview", "chatgpt"],
-          "audience": 48200,
-          "competitorsMentioned": ["nerdwallet.com", "bankrate.com"]
-        },
-        {
-          "prompt": "fixed vs floating interest",
-          "brandMentioned": true,
-          "platforms": ["chatgpt"],
-          "audience": 9200,
-          "competitorsMentioned": ["bankrate.com"]
-        },
-        {
-          "prompt": "credit score improve fast",
-          "brandMentioned": false,
-          "platforms": ["gemini", "google_ai_overview"],
-          "audience": 26800,
-          "competitorsMentioned": ["nerdwallet.com", "experian.com"]
-        }
+      "prompts": [
+        { "prompt": "how to get home loan pre approval", "mentions": 29, "rank": 4 },
+        { "prompt": "fixed vs floating mortgage rate", "mentions": 24, "rank": 5 },
+        { "prompt": "improve credit score before applying loan", "mentions": 17, "rank": 7 }
       ]
     },
     "ai_citation_tracking": {
-      "type": "ai_citation_tracking",
-      "domain": "northstarfinance.com",
-      "rows": [
-        {
-          "url": "https://northstarfinance.com/loans/pre-approval",
-          "citationCount": 29,
-          "avgCitationPosition": 2.6,
-          "platforms": ["google_ai_overview", "chatgpt"],
-          "promptsCitedIn": 18
-        },
-        {
-          "url": "https://northstarfinance.com/blog/fixed-vs-floating",
-          "citationCount": 18,
-          "avgCitationPosition": 3.9,
-          "platforms": ["chatgpt"],
-          "promptsCitedIn": 11
-        },
-        {
-          "url": "https://northstarfinance.com/guides/credit-score",
-          "citationCount": 9,
-          "avgCitationPosition": 5.2,
-          "platforms": ["gemini"],
-          "promptsCitedIn": 7
-        }
+      "citations": [
+        { "source": "ChatGPT", "count": 46 },
+        { "source": "Gemini", "count": 35 },
+        { "source": "Perplexity", "count": 24 }
       ]
     }
+  },
+  "aiPerformanceMatrix": {
+    "rows": [
+      {
+        "platform": "Overall",
+        "visibilityShare": 17.9,
+        "mentions": 121,
+        "citations": 105
+      },
+      {
+        "platform": "ChatGPT",
+        "visibilityShare": 10.5,
+        "mentions": 46,
+        "citations": 46
+      },
+      {
+        "platform": "Gemini",
+        "visibilityShare": 8.3,
+        "mentions": 35,
+        "citations": 35
+      },
+      {
+        "platform": "Perplexity",
+        "visibilityShare": 5.6,
+        "mentions": 24,
+        "citations": 24
+      }
+    ]
+  },
+  "periodSnapshots": {
+    "currentWeek": { "label": "Current week data", "estimatedAiMentions": 126, "brandPromptShare": 18.4 },
+    "lastWeek": { "label": "Last week data", "estimatedAiMentions": 121, "brandPromptShare": 17.9 },
+    "bestWeek": { "label": "Best week data", "estimatedAiMentions": 138, "brandPromptShare": 19.6 },
+    "currentMonth": { "label": "Current month data", "estimatedAiMentions": 489, "brandPromptShare": 18.2 },
+    "lastMonth": { "label": "Last month data", "estimatedAiMentions": 462, "brandPromptShare": 17.3 },
+    "bestMonth": { "label": "Best month data", "estimatedAiMentions": 521, "brandPromptShare": 19.8 },
+    "currentQuarter": { "label": "Current quarter data", "estimatedAiMentions": 1450, "brandPromptShare": 18.1 },
+    "lastQuarter": { "label": "Last quarter data", "estimatedAiMentions": 1389, "brandPromptShare": 16.9 },
+    "bestQuarter": { "label": "Best quarter data", "estimatedAiMentions": 1562, "brandPromptShare": 20.1 }
   }
 }

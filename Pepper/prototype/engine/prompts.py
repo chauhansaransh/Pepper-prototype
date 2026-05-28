@@ -1,5 +1,27 @@
 import json
+from functools import lru_cache
+from pathlib import Path
 from typing import Any, Dict, List
+
+ROOT_DIR = Path(__file__).resolve().parents[1]
+LLM_INSTRUCTIONS_DIR = ROOT_DIR / "config" / "llm_instructions"
+BASE_INSTRUCTIONS_FILE = LLM_INSTRUCTIONS_DIR / "base.md"
+
+
+@lru_cache(maxsize=8)
+def load_llm_instruction_blocks(template_id: str) -> Dict[str, str]:
+    base_text = ""
+    override_text = ""
+
+    if BASE_INSTRUCTIONS_FILE.exists():
+        base_text = BASE_INSTRUCTIONS_FILE.read_text(encoding="utf-8").strip()
+
+    if template_id:
+        override_file = LLM_INSTRUCTIONS_DIR / f"{template_id}.md"
+        if override_file.exists():
+            override_text = override_file.read_text(encoding="utf-8").strip()
+
+    return {"base": base_text, "override": override_text}
 
 
 def build_storytelling_prompt(
@@ -48,13 +70,13 @@ def _format_section_instructions(structured_sections: List[Dict[str, Any]]) -> s
         data_sources = section.get("dataSources") or []
         if generated == "llm":
             lines.append(
-                f"   - ## {title} (type: {stype}) — synthesize from prior sections; no new metrics"
+                f"   - ## {title} — synthesize from prior sections; no new metrics. Layout hint: {stype}"
             )
         elif data_sources:
             ds = ", ".join(data_sources)
-            lines.append(f"   - ## {title} (type: {stype}) — data: {ds}")
+            lines.append(f"   - ## {title} — data: {ds}. Layout hint: {stype}")
         else:
-            lines.append(f"   - ## {title} (type: {stype})")
+            lines.append(f"   - ## {title} — layout hint: {stype}")
     return "\n".join(lines) if lines else "   (use template.sections headings)"
 
 
@@ -92,6 +114,23 @@ def build_template_storytelling_prompt(
 
     metadata = template.get("metadata") or {}
     objective = metadata.get("objective", "")
+    template_id = str(template.get("id", "") or "").strip().lower()
+    instruction_blocks = load_llm_instruction_blocks(template_id)
+    base_instructions = instruction_blocks["base"]
+    override_instructions = instruction_blocks["override"]
+
+    policy_blocks: List[str] = []
+    if base_instructions:
+        policy_blocks.append(f"Global instructions:\n{base_instructions}")
+    if override_instructions:
+        policy_blocks.append(
+            f"Template-specific instructions ({template_id}):\n{override_instructions}"
+        )
+    policy_section = (
+        "\n\n".join(policy_blocks)
+        if policy_blocks
+        else "No external instruction file provided."
+    )
 
     return f"""You are a senior Customer Success analyst at Pepper Atlas.
 Write a customer-facing report in markdown using the template sections and data below.
@@ -101,6 +140,9 @@ Report type: {template.get('label', template.get('id', 'Report'))}
 Reporting period: {template.get('periodLabel', 'Unknown')}
 Objective: {objective or 'See template guidance.'}
 CSM instructions: {safe_instructions}
+
+Instruction policy (higher priority than defaults below):
+{policy_section}
 
 Template guidance:
 {template.get('llmGuide', 'Follow standard SEO storytelling best practices.')}
@@ -124,7 +166,8 @@ Requirements:
 2. For each section, prefer metrics in sectionData[].data for that section's dataSources.
 3. Top-level payloads (gsc, ga4, semrush, semrushAi, wordpress, webflow, contentful, gscUrlInspection) are authoritative.
 4. Reference specific queries, pages, competitors, prompts, or URLs from selectedItems when relevant.
-5. Keep tone professional, concise, and client-ready.
+5. Keep tone professional and client-ready; insights and recommendations use 1-2 sentence bullets with cited data.
 6. Do not include chart images or placeholders.
 7. Output markdown only, no preamble.
+8. Never invent metrics; every claim must trace to the JSON context.
 """
